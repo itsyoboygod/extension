@@ -1,0 +1,74 @@
+:root{
+    --salmon: hsl(6, 93%, 71%);
+    --green: hsl(120, 100%, 50%);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--salmon);
+}
+
+main{
+    padding: 10px;
+    margin: 100px;
+    /* position: relative; */
+    min-height: max-content;
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main h1{
+    margin: 0;
+}
+
+main h1::before{
+    content: open-quote;
+    font-size: 2rem;
+}
+
+main h1::after{
+    content: close-quote;
+    font-size: 2rem;
+}
+
+button{
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 2vw 2vh;
+    transition: .5s;
+}
+
+button:hover{
+    opacity: .5;
+    transition: .5s;
+    cursor: pointer;
+}  
+
+button::before{
+    content: attr(data-count);
+    position: absolute;
+    top: 11em;
+    right: 11.2em;
+    width: 1.2em;
+    height: 1.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: var(--green);
+    color: white;
+    font-family: monospace;
+    padding: 0px;
+
+}
+
+.floating {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }

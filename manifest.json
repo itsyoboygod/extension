@@ -1,0 +1,24 @@
+{
+    "name": "Boolean Judge",
+    "description": "Verify if the information is Fake or True",
+    "version": "1.0",
+    "manifest_version": 3,
+    "icons":{
+        "16": "/img/wi16x16.png",
+        "256": "/img/i256x256.png"
+    },
+    "action": {
+        "default_popup": "./popup/popup.html",
+        "default_title": "Boolean Judge"
+      },
+    "permissions": ["activeTab", "scripting"],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["./scripts/content.js"]
+        }
+    ]
+  }
