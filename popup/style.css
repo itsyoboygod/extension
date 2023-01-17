@@ -1,141 +1,234 @@
-:root{
-    --salmon: hsl(6, 93%, 71%);
-    --green: hsl(120, 100%, 50%);
-    --lightgrey: #303030;
-    --grey: #181818;
-    --white: hsl(0, 0%, 100%);
+:root {
+  --salmon: hsl(6, 93%, 71%);
+  --green: hsl(120, 100%, 50%);
+  --lightgrey: #303030;
+  --grey: #181818;
+  --white: hsl(0, 0%, 100%);
+  --red: hsl(0, 100%, 50%);
 }
 
-body{
-    margin: 0;
-    padding: 0;
-    background-color: var(--white);
-    min-height: 83vh;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--white);
+  min-height: 83vh;
 }
 
-main{
-    padding: 5px;
-    margin: 0px;
-    /* position: relative; */
-    min-height: max-content;
-    width: max-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 97vw;
+main {
+  padding: 5px;
+  margin: 0px;
+  /* position: relative; */
+  min-height: max-content;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 97vw;
 }
 
-main h1{
-    margin: 0;
+main h1 {
+  margin: 0;
 }
 
-main h1::before{
-    content: open-quote;
-    font-size: 2rem;
+main h1::before {
+  content: open-quote;
+  font-size: 2rem;
 }
 
-main h1::after{
-    content: close-quote;
-    font-size: 2rem;
+main h1::after {
+  content: close-quote;
+  font-size: 2rem;
 }
 
-button{
-    margin: 5px;
-    padding: 10px;
-    border: none;
-    border-radius: 3vw 3vh;
-    transition: .5s;
-    position: relative;
+#alert__button {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 3vw 3vh;
+  transition: .5s;
+  position: relative;
+  width: inherit;
+  font-size: 2rem;
 }
 
-button:hover{
-    opacity: .5;
-    transition: .5s;
-    cursor: pointer;
-}  
+#alert__button:hover {
+  opacity: .5;
+  transition: .5s;
+  cursor: pointer;
+}
 
-button::before{
-    content: attr(data-count);
-    position: absolute;
-    top: -0.5em;
-    right: -0.5em;
-    width: 1.2em;
-    height: 1.2em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    background-color: var(--green);
-    color: white;
-    font-family: monospace;
-    padding: 0px;
-
+#alert__button:before {
+  content: attr(data-scan);
+  position: absolute;
+  top: 0.2em;
+  right: 0.2em;
+  width: 1.2em;
+  height: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--green);
+  color: white;
+  font-size: 1rem;
+  font-family: unset;
+  padding: 2px;
+  font-weight: bold;
+  z-index: 1;
 }
 
 
 .floating {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-  }
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
 
-  main ul{
-    display: flex;
-    flex-direction: column;
-    margin: 2px;
-    padding: 2px;
-    list-style-type: none;
-    gap: .1rem;
-    width: -webkit-fill-available;
-    color: white;
-  }
+main ul {
+  display: flex;
+  flex-direction: column;
+  margin: 2px;
+  padding: 2px;
+  list-style-type: none;
+  gap: .1rem;
+  width: -webkit-fill-available;
+  color: white;
+}
 
-  main ul li{
-    display: flex;
-    margin: 2px;
-    padding: 2px;
-    list-style-type: none;
-    border-radius: 2vw 2vh;
-    transition: .2s;
-  }
+main ul li {
+  display: flex;
+  margin: 2px;
+  padding: 2px;
+  list-style-type: none;
+  border-radius: 2vw 2vh;
+  transition: .2s;
+}
 
-  main ul li:hover{
-    cursor: pointer;
-    opacity: .8;
-    transition: .2s;
-  }
+main ul li:hover {
+  cursor: pointer;
+  opacity: .8;
+  transition: .2s;
+}
 
-  main ul li p{
-    margin: 2px;
-    padding: 2px;
-    font-size: 1.1rem;
-    font-family: 'Courier New', Courier, monospace;
-    position: relative;
-  }
+main ul li p {
+  margin: 2px;
+  padding: 2px;
+  font-size: 1.1rem;
+  font-family: 'Courier New', Courier, monospace;
+  position: relative;
+}
 
-  main ul li:nth-child(odd){
-    background-color: var(--grey);
-  }
+main ul li:nth-child(odd) {
+  background-color: var(--grey);
+}
 
-  main ul li:nth-child(even){
-    background-color: var(--lightgrey);
-  }
+main ul li:nth-child(even) {
+  background-color: var(--lightgrey);
+}
 
 
-ul li p::before{
-    content: attr(data-count);
-    position: absolute;
-    top: -0.5em;
-    right: -10.4em;
-    width: 0.8em;
-    height: 0.8em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    color: white;
-    background-color: var(--green);
-    font-family: monospace;
-    padding: 0px;
+ul li p::before {
+  content: attr(data-count);
+  position: absolute;
+  top: -0.5em;
+  right: -10.4em;
+  width: 0.8em;
+  height: 0.8em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+  background-color: var(--red);
+  font-family: monospace;
+  padding: 0px;
+}
+
+/* --------------------TABS--------------------- */
+
+/* Style the tab */
+.tab {
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  font-size: 1rem;
+  width: inherit;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+/* Style the buttons inside the tab */
+.tablinks {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px;
+  transition: 0.3s;
+  font-size: .8rem;
+  position: relative;
+  width: -webkit-fill-available;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.tablinks::before {
+  content: attr(data-tab);
+  position: absolute;
+  top: -0.5em;
+  right: -0.2em;
+  width: 1.2em;
+  height: 1.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+  background-color: var(--red);
+  font-family: unset;
+  padding: 2px;
+  font-weight: bold;
+  font-size: .8rem;
+  z-index: 1;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  font-size: .8rem;
+  align-self: flex-end;
+}
+
+footer p {
+  margin: 2px;
+  padding: 2px;
+}
+
+footer p a {
+  text-decoration: none;
+  color: lightgrey;
+  transition: .2s ease-in-out;
+}
+
+footer p a:hover {
+  color: black;
+  transition: .2s ease-in-out;
 }
