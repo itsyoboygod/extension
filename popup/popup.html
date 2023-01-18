@@ -10,77 +10,48 @@
     <link rel="stylesheet" href="style.css">
     <script src="floatingbtn.js" defer></script>
     <script src="popup.js" defer></script>
-    <script src="tabs.js" defer></script>
+    <script src="list.js" defer></script>
 </head>
 
 <body>
     <main>
         <button id="alert__button" data-scan="11">SCAN PAGE</button>
 
-<!-- 
-        <div class="tab">
-            <button class="tablinks" data-tab="33" onclick="openCity(event, 'PageReports')">Page Reports</button>
-            <button class="tablinks" data-tab="33" onclick="openCity(event, 'Paris')">Paris</button>
-            <button class="tablinks" data-tab="33" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+          <div class="wrapper">
+            <div class="tabs">
+                <input type="radio" class="tabs__radio" name="tabs-expample" id="tab1" checked>
+                <label for="tab1" class="tabs__label info-tab-btn">Page Reports</label>
+                <div class="tabs__content">
+                    <h1>PAGE REPORTS</h1>
+                    <ul class="ul__table">
+                        <li class="li__table">
+                            <p>Option #1</p>
+                            <p id="txt__selected"></p>
+                        </li>
+                        <li class="li__table">
+                            <p>Option #2</p>
+                        </li>
+                        <li class="li__table">
+                            <p>Option #3</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <input type="radio" class="tabs__radio" name="tabs-expample" id="tab2">
+                <label for="tab2" class="tabs__label">Technincal Information</label>
+                <div class="tabs__content">
+                    CONTENT TAB#2
+                </div>
+
+                <input type="radio" class="tabs__radio" name="tabs-expample" id="tab3">
+                <label for="tab3" class="tabs__label">Scientific Information</label>
+                <div class="tabs__content">
+                    CONTENT TAB#3
+                </div>
+            </div>
         </div>
 
-        <div id="PageReports" class="tabcontent">
-            <h3>PageReports</h3>
-            <ul class="ul__table">
-                <li class="li__table">
-                    <p>Option #1</p>
-                </li>
-                <li class="li__table">
-                    <p>Option #2</p>
-                </li>
-                <li class="li__table">
-                    <p>Option #3</p>
-                </li>
-                <li class="li__table">
-                    <p>Option #4</p>
-                </li>
-                <li class="li__table">
-                    <p>Option #5</p>
-                </li>
-                <li class="li__table"></li>
-                <button id="optbtn">Ok</button>
-            </ul>
-        </div>
-
-        <div id="Paris" class="tabcontent">
-            <h3>Paris</h3>
-            <p>Paris is the capital of France.</p>
-        </div>
-
-        <div id="Tokyo" class="tabcontent">
-            <h3>Tokyo</h3>
-            <p>Tokyo is the capital of Japan.</p>
-        </div> -->
-
-
-
-        <div class="tab">
-            <button class="tablinks" data-tab="33" onclick="openCity(event, 'London')">Page Reports</button>
-            <button class="tablinks" data-tab="12" onclick="openCity(event, 'Paris')">Paris</button>
-            <button class="tablinks" data-tab="23" onclick="openCity(event, 'Tokyo')">Tokyo</button>
-          </div>
-          
-          <div id="London" class="tabcontent">
-            <h3>London</h3>
-            <p>London is the capital city of England.</p>
-          </div>
-          
-          <div id="Paris" class="tabcontent">
-            <h3>Paris</h3>
-            <p>Paris is the capital of France.</p> 
-          </div>
-          
-          <div id="Tokyo" class="tabcontent">
-            <h3>Tokyo</h3>
-            <p>Tokyo is the capital of Japan.</p>
-          </div>
-          
-
+            <p id="txt__selected"></p>
 
         <footer>
             <p><a href="#"> donate</a></p>
