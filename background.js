@@ -8,15 +8,16 @@ chrome.action.onClicked.addListener((tab) => {
         files: ['optpermissions.js'],
         files: ['notifi.js'],
         files: ['list.js'],
+        files: ['wordSelec.js'],
         files: ['popup.js']
     });
 });
 
 chrome.runtime.onMessage.addListener(reciever)
 
-let word = "word"
+chrome.word = "word"
 
 function reciever(request, sender, sendResponse){
     console.log(request)
-    word = request.text
+    chrome.word = request.text
 }
