@@ -11,11 +11,11 @@
         "default_popup": "./popup/popup.html",
         "default_title": "Boolean Judge"
       },
-    "permissions": ["activeTab", "scripting","contextMenus","storage"],
+    "permissions": ["activeTab", "scripting","contextMenus","storage", "tabs"],
     "host_permissions": [
       "https://developer.chrome.com/*"
     ],
-    "optional_permissions": ["tabs", "topSites"],
+    "optional_permissions": ["topSites"],
     "optional_host_permissions": ["http://www.developer.chrome.com/*", "https://www.google.com/"],
     "background": {
         "service_worker": "background.js"
@@ -27,7 +27,6 @@
               "./scripts/content.js",
               "./scripts/problem.js", 
               "./scripts/optpermissions.js", 
-              "./scripts/notifi.js", 
               "./scripts/wordSelec.js", 
               "./popup/list.js", 
               "./popup/popup.js"
