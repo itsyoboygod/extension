@@ -29,8 +29,15 @@
               "./scripts/optpermissions.js", 
               "./scripts/wordSelec.js", 
               "./popup/list.js", 
+              "background.js", 
               "./popup/popup.js"
             ]
         }
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": [ "img/*.png" ],
+        "matches": [ "https://example.com/*" ]
+      }
     ]
   }
