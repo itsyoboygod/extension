@@ -11,7 +11,7 @@
         "default_popup": "./popup/popup.html",
         "default_title": "Boolean Judge"
       },
-    "permissions": ["activeTab", "scripting","contextMenus","storage", "tabs"],
+    "permissions": ["activeTab", "scripting", "contextMenus","storage", "tabs"],
     "host_permissions": [
       "https://developer.chrome.com/*"
     ],

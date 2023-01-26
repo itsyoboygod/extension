@@ -41,6 +41,28 @@ main h1::after {
   font-size: 2rem;
 } */
 
+
+.li__table button{
+  margin: 2px;
+  padding: 2px;
+  border: none;
+  border-radius: 3vw 2vh;
+  position: relative;
+  width: -webkit-fill-available;
+  font-size: .8rem;
+  transition: .2s ease-in-out;
+  backdrop-filter: blur(2px);
+  background: transparent;
+  background-color: hsla(0,0%,100%,.3);
+}
+
+.li__table  button:hover{
+  opacity: .8;
+  transition: .2s ease-in-out;
+  cursor: pointer;
+}
+
+
 #alert__button {
   margin: 5px;
   padding: 10px;
