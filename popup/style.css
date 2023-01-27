@@ -4,6 +4,7 @@
   --lightgrey: #303030;
   --grey: #181818;
   --white: hsl(0, 0%, 100%);
+  --rdm-clr: --rdm-clr;
   --red: hsl(0, 100%, 50%);
 }
 
@@ -60,6 +61,33 @@ main h1::after {
   opacity: .8;
   transition: .2s ease-in-out;
   cursor: pointer;
+}
+
+.li__table .url{
+  width: -webkit-fill-available;
+  align-self: center;
+  max-height: 200px;
+  overflow-y: scroll;
+  margin: 2px;
+  padding: 2px;
+}
+
+.li__table #test{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.li__table .url::-webkit-scrollbar{
+  width: 4px;
+  height: 4px;
+  background-color: #8888;
+}
+
+.li__table .url::-webkit-scrollbar-thumb{
+  background: grey;
+  border-radius: 50px;
 }
 
 

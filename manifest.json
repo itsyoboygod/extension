@@ -30,7 +30,8 @@
               "./scripts/wordSelec.js", 
               "./popup/list.js", 
               "background.js", 
-              "./popup/popup.js"
+              "./popup/popup.js",
+              "./popup/rdm_clr.js"
             ]
         }
     ],
