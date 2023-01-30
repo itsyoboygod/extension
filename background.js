@@ -6,12 +6,29 @@
       files: ['popup.js'],
       files: ['wordSelect.js'],
       files: ['content.js'],
+      files: ['rdm_clr.js'],
+      func: () => window.history.back()
     });
   });
 
-  // chrome.runtime.onMessage.addListener(reciever)
-
-  // let word = "word"
+  chrome.runtime.onMessage.addListener(
+     function(request, sender, sendResponse) {
+      console.log(sender.tab ?
+                  `from popup.js: ` + sender.tab.url : ` from the extension`
+                  );
+      if (request.greeting === "hello")
+        sendResponse({
+          farewell: "goodbye",
+          url: sender.tab?.url
+        });
+        
+      }
+      );
+      // document.getElementById("id__report").innerText = "sender.tab.url"
+      
+      // chrome.runtime.onMessage.addListener(reciever)
+      
+      // let word = "word"
 
   // function reciever(request, sender, sendResponse) {
   //   word = request.text
@@ -19,20 +36,4 @@
   //   ${word}
   //     `)
   //   chrome.runtime.sendMessage(word)
-
   // }
-
-
-
-chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
-    console.log(sender.tab ?
-                "from a content script:" + sender.tab.url :
-                "from the extension");
-    if (request.greeting === "hello")
-      sendResponse({
-        farewell: "goodbye",
-        url: sender.tab.url
-      });
-  }
-);

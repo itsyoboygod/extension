@@ -8,23 +8,13 @@
   // btn?.addEventListener('click', function onClick(event) {
   //   document.body.style.backgroundColor = 'salmon'
   // });
-
-
   
-// const btn = document.getElementById('theButton');
-
-(async () => {
-  const response = await chrome.runtime.sendMessage({greeting: "hello"});
-  // do something with response here, not outside the function
-  console.log(`
-    ${response.farewell},
-    url: ${response.url}
+  (async () => {
+    const response = await chrome.runtime.sendMessage({greeting: "hello"});
+    console.log(`
+    ${response?.farewell},
+    url: ${response?.url}
     `);
   })();
+  // var bruh = document.getElementById("id__report");
 
-
-    // const btn = document.getElementById('theButton');
-
-    //   btn.addEventListener('click', function onClick(event) {
-    //   document.body.style.backgroundColor = 'salmon';
-    // });

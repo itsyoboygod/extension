@@ -1,5 +1,3 @@
-
-
 // ----------------- COMMUNICATION BETWEEN BACKGROUND & ESPECIFIC PORT DOM File.JS  ---------------
 
 // opens a communication port
