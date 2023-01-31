@@ -47,7 +47,7 @@ main h1::after {
   margin: 2px;
   padding: 2px;
   border: none;
-  border-radius: 3vw 2vh;
+  border-radius: 8px;
   position: relative;
   width: -webkit-fill-available;
   font-size: .8rem;
@@ -72,16 +72,19 @@ main h1::after {
   padding: 2px;
 }
 
-.li__table #test{
+.li__table .url #test{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 2px;
+  margin: 2px;
+  color: var(--rdm-clr);
 }
 
 
 .li__table .url::-webkit-scrollbar{
-  width: 4px;
-  height: 4px;
+  width: 0px;
+  height: 3px;
   background-color: #8888;
 }
 
@@ -349,6 +352,7 @@ ul li p::before {
 
 .li__table details::-webkit-scrollbar{
   width: 4px;
+  height: 3px;
   background-color: #8888;
 }
 

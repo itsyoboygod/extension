@@ -10,11 +10,18 @@
   // });
   
   (async () => {
-    const response = await chrome.runtime.sendMessage({greeting: "hello"});
-    console.log(`
-    ${response?.farewell},
-    url: ${response?.url}
-    `);
+    try{
+      const response = await chrome.runtime.sendMessage({greeting: "hello"});
+      const test = JSON.parse(response.url)
+      console.log(`
+        ${response.farewell},
+        url: ${response.url}
+        `);
+        // document.getElementsByTagName('a').getAttribute('href').innerText = "test.url.toString()";
+        document.getElementById("test").innerText = test.url.toString()
+      console.log(test);
+    } catch (error) {
+      console.error("response error: " + error);
+    }
+      console.log("dentro async: " + response.url)
   })();
-  // var bruh = document.getElementById("id__report");
-

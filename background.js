@@ -19,11 +19,10 @@
       if (request.greeting === "hello")
         sendResponse({
           farewell: "goodbye",
-          url: sender.tab?.url
+          url: JSON.stringify(sender),
         });
-        
       }
-      );
+     );
       // document.getElementById("id__report").innerText = "sender.tab.url"
       
       // chrome.runtime.onMessage.addListener(reciever)
