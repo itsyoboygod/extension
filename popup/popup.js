@@ -1,13 +1,13 @@
 // console.log("popup.js ok!")
-function popup(){
-    let bgpage = chrome.extension.getBackgroundPage()
-    let word = bgpage.word.trim()
-    createP(word)
-  }
-
-  // btn?.addEventListener('click', function onClick(event) {
+// btn?.addEventListener('click', function onClick(event) {
 //   document.body.style.backgroundColor = 'salmon'
 // });
+
+function popup() {
+  let bgpage = chrome.extension.getBackgroundPage()
+  let word = bgpage.word.trim()
+  createP(word)
+}
 
 (async () => {
   try {
@@ -18,28 +18,27 @@ function popup(){
         id: ${test.id},
         url: ${test.url}
         `);
-    document.getElementById("info__id").innerText = test.id
-    document.getElementById("info__url").innerText = test.url
+
+        document.getElementById("info__id").innerText = test.id
+        document.getElementById("info__url").innerText = test.url
+
+        // const info__id = document.getElementById("info__id")
+        //   info__id?.addEventListener('mouseup', (event) => {
+        //   info__id.innerText = test.id
+        // })
+        // const info__url = document.getElementById("info__url")
+        //   info__url?.addEventListener('mouseup', (event) => {
+        //   info__url .innerText = test.url
+        //})
   } catch (error) {
     console.error("response error: " + error);
   }
 })();
 
+    // var wrdsel2 = document.getElementById("wrdsel2")
+    //   wrdsel2?.addEventListener('mouseup', (event) => {
+    //   wrdsel2.innerText = selectedText
+    // })
 
-
-
-window.addEventListener('mouseup', wordSelected)
-
-function wordSelected() {
-    let selectedText = window.getSelection().toString().trim()
-    console.log(`_______WORDSELEC POPUP.js_______ \n
-    ${selectedText}
-            `)
-    if (selectedText.length > 0) {
-        let message = {
-            text: selectedText
-          }
-        }
-        document.getElementById('wrdsel2').innerHTML = selectedText
-
-}
+      // document.getElementById("wrdsel").innerText = selectedText
+      // document.getElementById("wrdsel2").innerText = selectedText
