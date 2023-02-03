@@ -18,25 +18,30 @@ chrome.runtime?.onMessage.addListener(
     if (request?.greeting === "hello")
       sendResponse({
         farewell: "goodbye",
-        url: JSON.stringify(sender),
+        url: JSON.stringify(sender)
       });
   }
 );
 
-    chrome.runtime?.onMessage.addListener(reciever)
+chrome.runtime?.onMessage.addListener(reciever)
 
-      var window = self
-      window.word = "codin train"
+// let word = "coding train"
 
-    function reciever(request, sender, sendResponse) {
-      // let word = request.text
-      console.log(`______BACKGROUND.js______ \n
-            ${word = request.text}
+function reciever(request, sender, sendResponse) {
+  var window = self
+  window.word = "codin train"
+  // let word = request.text
+  console.log(`______BACKGROUND.js______ \n
+            ${word = request.text},
+            ${sender.tab?.url}
               `)
-      chrome.runtime.sendMessage(word)
+  //   chrome.runtime.sendMessage(word)
 
-      // let wrdsel = document.getElementById("wrdsel")
-      //   wrdsel?.addEventListener('mouseup', (event) => {
-      //   wrdsel.innerText = selectedText
-      // })
-    }
+  // window.document.getElementById("wrdsel").innerText = word
+  // window.document.getElementById("wrdsel2").innerText = word
+
+  // let wrdsel = window.document.getElementById("wrdsel")
+  //   wrdsel?.addEventListener('mouseup', (event) => {
+  //   wrdsel.innerText = sender.tab.url
+  // })
+}
