@@ -1,18 +1,15 @@
 // console.log('Word selected running!')
-window.addEventListener('mouseup', wordSelected)
+// window.addEventListener('mouseup', wordSelected)
 
    function wordSelected() {
     var selectedText = window.getSelection().toString().trim()
     if (selectedText.length > 0) {
-        console.log(`_______WORDSELEC.js_______ \n
-        ${selectedText}
-                `)
-        var message = {
-            text: selectedText
+            return selectedText 
         }
-        chrome.runtime.sendMessage(message)
+    }
+//         chrome.runtime.sendMessage(message)
 
-        document.getElementById("wrdsel").innerText = selectedText
+//         document.getElementById("wrdsel").innerText = selectedText
         // document.getElementById("wrdsel2").innerText = selectedText
         
         // var wrdsel = document.getElementById("wrdsel")
@@ -24,5 +21,18 @@ window.addEventListener('mouseup', wordSelected)
         //     wrdsel2?.addEventListener('mouseup', (event) => {
         //         wrdsel2.innerText = "selectedText"
         // })
-    }
-}
+    // }
+// }
+var word  = wordSelected.selectedText
+chrome.runtime.sendMessage({ 
+    type: "wordselMessage",
+    payload: "Hello from word select!"
+   },
+    function (response) {
+      console.log(`
+        type: ${response.type} ,
+        payload: ${response.payload} ,
+        bruh: ${response.bruh} ,
+        word: ${response.word}
+      `);
+  });
