@@ -28,7 +28,6 @@
               "./scripts/problem.js", 
               "./scripts/optpermissions.js", 
               "./scripts/wordSelec.js", 
-              "./popup/list.js", 
               "background.js", 
               "./popup/popup.js",
               "./popup/rdm_clr.js"

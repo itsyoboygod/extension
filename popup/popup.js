@@ -1,26 +1,37 @@
-// console.log("popup.js ok!")
+// console.log("popup is ok !!")
+var payload = {
+  message: "Hello from popup!"
+}
 
-//     if (selectedText.length > 0) {
-//         console.log(`_______WORDSELEC.js_______ \n
-//         ${selectedText}
-//                 `)
-//         var message = {
-//             text: selectedText
-//         }
-//         chrome.runtime.sendMessage(message)
-
-//         document.getElementById("wrdsel").innerText = selectedText
-
-
-// Send message to background script
-chrome.runtime.sendMessage({ 
-  type: "popupMessage",
- },
-  function (response) {
-    console.log(`
-      type: ${response.type} ,
-      payload: ${response.payload} ,
-      bruh: ${response.bruh} ,
-      word: ${response.word}
-    `);
+chrome.runtime.sendMessage({
+  source: "popup.js",
+  payload: payload
+}, function (response) {
+  console.log(`
+   ${response.source} , 
+   ${response.payload}
+  `);
 });
+
+function word() {
+  let bgpage = chrome.extension.getBackgroundPage();
+  let word = bgpage.word;
+  createP(word)
+}
+
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+  if (request.source === "wordselec.js") {
+    console.log(`
+           ${request.source} , 
+           ${request.payload.message}
+           `);
+    sendResponse({
+      source: "popupResponse",
+      payload: "Hello from popup!"
+    });
+  }
+  var wordsel = document.getElementById("wordsel")
+  var wordsel2 = document.getElementById("wordsel2")
+  wordsel.innerText = request.payload.message
+  wordsel2.innerText = request.payload.message
+})

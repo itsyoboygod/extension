@@ -1,4 +1,4 @@
-// console.log('background running!')
+ console.log('background running!')
 
 chrome.action?.onClicked.addListener((tab) => {
   chrome.scripting.executeScript({
@@ -6,26 +6,33 @@ chrome.action?.onClicked.addListener((tab) => {
     files: ['popup.js'],
     files: ['wordSelect.js'],
     files: ['content.js'],
-    files: ['rdm_clr.js']
+    files: ['rdm_clr.js'],
   });
 });
 
- 
-  chrome.runtime.onMessage.addListener(reciever)
-  function reciever(request, sender, sendResponse) {
-    if(request?.type === "popupMessage") 
-      sendResponse({
-        type: "backgroundResponse",
-        payload: "Hello from word bckg!",
-        bruh: "bruh",
-        word: "selectedText" 
-        }) 
-    if(request?.type === "wordselMessage")
-      sendResponse({
-        type: "backgroundResponse#2",
-        payload: "Hello from word bckg!",
-        bruh: "bruh#2",
-        word: "selectedText#2"
-        })
-    console.log(``);
-  };
+// Listen for messages from popup
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    
+  if (request.source === "popup.js") {
+      console.log(`
+       ${request.source} , 
+       ${request.payload.message}
+      `);
+      sendResponse({ 
+          source: "backgroundResponse", 
+          payload: "Hello from background!" 
+      });
+  }
+  let window = self
+  window.word = "coding train"
+  if (request.source === "wordselec.js") {
+      console.log(`
+       ${request.source} , 
+       ${window.word = request.payload.message}
+      `);
+      sendResponse({ 
+          source: "backgroundResponse", 
+          payload: "Hello from background!" 
+      });
+  }
+});
