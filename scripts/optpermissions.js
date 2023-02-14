@@ -1,3 +1,5 @@
+// console.log("popup is ok !!")
+
 const el = document.getElementById("optbtn")
   el?.addEventListener('click', (event) => {
     chrome.permissions.request({

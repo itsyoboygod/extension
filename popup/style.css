@@ -208,7 +208,7 @@ main ul li {
 
 main ul li:hover {
   cursor: pointer;
-  opacity: .9;
+  opacity: .95;
   transition: .2s;
 }
 

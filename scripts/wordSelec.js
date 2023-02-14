@@ -9,6 +9,12 @@ function wordSelected() {
         var payload = {
             message: selectText
         }
+        chrome.storage.local.set({payload: payload}, function() {
+        console.log(`
+         SET local storage: 
+          ${payload.message} ,
+        `);
+        });
         chrome.runtime.sendMessage({
             source: "wordselec.js",
             payload: payload
@@ -16,9 +22,7 @@ function wordSelected() {
             console.log(`
      ${response.source} , 
      ${response.payload}
-    `);
-        });
-    }
+    `)})}
 }
 
 // var wordsel = document.getElementsByTagName("pre")

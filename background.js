@@ -1,4 +1,4 @@
- console.log('background running!')
+//  console.log('background running!')
 
 chrome.action?.onClicked.addListener((tab) => {
   chrome.scripting.executeScript({

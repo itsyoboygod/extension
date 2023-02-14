@@ -30,8 +30,15 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       payload: "Hello from popup!"
     });
   }
-  var wordsel = document.getElementById("wordsel")
-  var wordsel2 = document.getElementById("wordsel2")
-  wordsel.innerText = request.payload.message
-  wordsel2.innerText = request.payload.message
 })
+chrome.storage.local.get(['payload'], function(result) {
+  console.log(`
+    GET local storage: 
+      ${result.payload.message}
+  `);
+  var wordsel = document.getElementById("wordsel")
+  wordsel.innerText = result.payload.message
+
+  var wordsel2 = document.getElementById("wordsel2")
+  wordsel2.innerText = result.payload.message
+});
