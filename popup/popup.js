@@ -16,8 +16,29 @@ chrome.runtime.sendMessage({
 function word() {
   let bgpage = chrome.extension.getBackgroundPage();
   let word = bgpage.word;
-  createP(word)
+  // createP(word)
+
+  let url = `https://api.wordnik.com/v4/word.json/
+  ${word}
+  /definitions?limit=1
+  &includeRelated=false
+  &sourceDictionaries=all
+  &useCanonical=false
+  &includeTags=false
+  &api_key=6f9nbd1ye2vn1e15uu86gpuo2vg9mid0j8cq2ztfoguc3u3tf
+  `
+  url = url.replace(/\s+/g, '')
+  loadJSON(url, gotData)
+
+  function gotData(data){
+    createP(data[0].text)
+  }
+
+  return "wefdewqfewfewf"
 }
+
+// var wordsel = document.getElementById("wordsel")
+// wordsel.innerText = word()
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (request.source === "wordselec.js") {
@@ -36,8 +57,6 @@ chrome.storage.local.get(['payload'], function(result) {
     GET local storage: 
       ${result.payload.message}
   `);
-  var wordsel = document.getElementById("wordsel")
-  wordsel.innerText = result.payload.message
 
   var wordsel2 = document.getElementById("wordsel2")
   wordsel2.innerText = result.payload.message
