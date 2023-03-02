@@ -8,6 +8,8 @@
   --red: hsl(0, 100%, 50%);
   --clr-data-fake: hsl(0, 100%, 50%);
   --clr-data-misleading: hsl(39, 100%, 50%);
+  --clr-data-loading: var(--green);
+  --clr-data-scam: var(--salmon);
 }
 
 body {
@@ -95,6 +97,16 @@ main h1::after {
   color: var(--white);
 }
 
+#info__id, #info__source{
+  position: relative;
+}
+
+#info__source {
+  /* text-decoration: none; */
+  color: var(--white);
+}
+
+
 #info__id::before{
   content: "ID: ";
   width: fit-content;
@@ -111,6 +123,15 @@ main h1::after {
   color: var(--white);
   font-weight: bolder;
 }
+
+#info__source::before{
+  content: "SOURCE: ";
+  width: fit-content;
+  /* background-color: red; */
+  color: var(--white);
+  font-weight: bolder;
+}
+
 
 .li__table .li__info::-webkit-scrollbar{
   width: 0px;
@@ -141,27 +162,6 @@ main h1::after {
   cursor: pointer;
 }
 
-#alert__button:before {
-  content: attr(data-scan);
-  position: absolute;
-  top: 0.2em;
-  right: 0.2em;
-  width: 1.2em;
-  height: 1.2em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background-color: var(--green);
-  color: white;
-  font-size: 1rem;
-  font-family: unset;
-  padding: 2px;
-  font-weight: bold;
-  z-index: 1;
-}
-
-
 .floating {
   position: fixed;
   bottom: 20px;
@@ -173,17 +173,17 @@ main ul {
   flex-direction: column;
   padding: 0px;
   list-style-type: none;
-  gap: 0.1rem;
+  /* gap: 0.1rem; */
   width: -webkit-fill-available;
   color: white;
 }
 
 main ul li {
   display: flex;
-  margin: 2px;
+  /* margin: 2px; */
   padding: 2px;
   list-style-type: none;
-  /* border-radius: 2vw 2vh; */
+  border-radius: 0.2em;
   transition: .2s;
   height: auto;
   position: relative;
@@ -194,7 +194,7 @@ main ul li {
   display: flex;
     align-items: center;
     /* align-self: center; */
-    height: 50px;
+    height: 25px;
     padding: 0px;
     width: 40px;
     margin: 0px;
@@ -218,7 +218,7 @@ main ul li p {
   margin: 2px;
   padding: 2px;
   font-size: 1.1rem;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: monospace;
   /* position: relative; */
   align-self: center;
 }
@@ -376,6 +376,7 @@ ul li::before {
 
 .li__table details summary{
   display: flex;
+  align-items: center;
 }
 
 .li__table details summary::marker{
@@ -398,42 +399,92 @@ ul li::before {
   position: relative;
 }
 
-li:nth-child(odd) details summary p::before{
-  content: attr(data-fake);
+li details summary p::before{
   position: absolute;
-  top: 0em;
   right: -4em;
   width: fit-content;
   height: 0.7em;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10rem;
+  border-radius: 0.2em;
   color: white;
-  background-color: var(--clr-data-fake);
   font-family: monospace;
   padding: 5px;
   font-weight: 700;
   font-size: 1rem;
 }
 
-li:nth-child(even) details summary p::before{
-  content: attr(data-misleading);
-  position: absolute;
-  top: 0em;
-  right: -7em;
-  width: fit-content;
-  height: 0.7em;
+.hr-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  border-radius: 10rem;
-  color: white;
+  justify-content: center;
+  margin: 5px 0;
+}
+
+.hr-container hr {
+  width: 40%;
+  margin: 0 10px;
+}
+
+.hr-text {
+  font-size: 15px;
+  color: var(--white);
+}
+
+
+li:nth-of-type(1) details summary p::before{
+  content: attr(data-fake);
+  background-color: var(--clr-data-fake);
+}
+
+li:nth-of-type(5) details summary p::before{
+  content: attr(data-fake);
+  background-color: var(--clr-data-fake);
+}
+
+li:nth-of-type(2) details summary p::before{
+  content: attr(data-misleading);
   background-color: var(--clr-data-misleading);
-  font-family: monospace;
-  padding: 5px;
-  font-weight: 700;
-  font-size: 1rem;
+  right: -7.3em;
+}
+
+li:nth-of-type(6) details summary p::before{
+  content: attr(data-misleading);
+  background-color: var(--clr-data-misleading);
+  right: -7.3em;
+}
+
+li:nth-of-type(3) details summary p::before{
+  content: attr(data-scam);
+  background-color: var(--clr-data-scam);
+}
+
+li:nth-of-type(7) details summary p::before{
+  content: attr(data-scam);
+  background-color: var(--clr-data-scam);
+}
+
+.loader {
+  border: 3px solid #f3f3f3;
+  border-radius: 100%;
+  border-top: 3px solid #3498db;
+  margin: 0 20px;
+  width: 10px;
+  height: 10px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* --------------------FOOTER--------------------- */
