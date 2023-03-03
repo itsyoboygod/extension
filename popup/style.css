@@ -1,6 +1,7 @@
 :root {
   --salmon: hsl(6, 93%, 71%);
   --green: hsl(120, 100%, 50%);
+  --lime: hsl(120, 100%, 50%);
   --lightgrey: #303030;
   --grey: #181818;
   --white: hsl(0, 0%, 100%);
@@ -250,6 +251,7 @@ ul li::before {
   background-color: var(--red);
   font-family: monospace;
   padding: 0px;
+  outline: solid 2px var(--white);
 }
 
 /* --------------------TABS--------------------- */
@@ -377,6 +379,13 @@ ul li::before {
 .li__table details summary{
   display: flex;
   align-items: center;
+  position: sticky;
+  top: 0;
+  transition: .2s ease-in-out;
+                backdrop-filter: blur(2px);
+                background: transparent;
+                background-color: hsla(0,0%,0%,.5);
+  border-radius: .2em;
 }
 
 .li__table details summary::marker{
@@ -425,11 +434,13 @@ li details summary p::before{
 .hr-container hr {
   width: 40%;
   margin: 0 10px;
+  color: lime;
+  border: solid 0.1px;
 }
 
 .hr-text {
   font-size: 15px;
-  color: var(--white);
+  color: var(--lime);
 }
 
 
@@ -438,10 +449,10 @@ li:nth-of-type(1) details summary p::before{
   background-color: var(--clr-data-fake);
 }
 
-li:nth-of-type(5) details summary p::before{
+/* li:nth-of-type(5) details summary p::before{
   content: attr(data-fake);
   background-color: var(--clr-data-fake);
-}
+} */
 
 li:nth-of-type(2) details summary p::before{
   content: attr(data-misleading);
