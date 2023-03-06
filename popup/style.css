@@ -65,7 +65,7 @@ main h1::after {
 .li__table  button:hover{
   opacity: .8;
   transition: .2s ease-in-out;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .li__table:nth-child(5){
@@ -89,6 +89,14 @@ main h1::after {
   color: var(--rdm-clr);
 }
 
+.li__info__col{
+  backdrop-filter: blur(2px);
+  background: transparent;
+  background-color: hsla(0,0%,0%,.5);
+  border-radius: 0.2em;
+  font-size: .7rem;
+}
+
 #info__id, #info__url{
   position: relative;
 }
@@ -109,7 +117,7 @@ main h1::after {
 
 
 #info__id::before{
-  content: "ID: ";
+  content: attr(data-id);
   width: fit-content;
   color: var(--white);
   /* background-color: red; */
@@ -118,7 +126,7 @@ main h1::after {
 }
 
 #info__url::before{
-  content: "URL: ";
+  content: attr(data-url);
   width: fit-content;
   /* background-color: red; */
   color: var(--white);
@@ -126,7 +134,23 @@ main h1::after {
 }
 
 #info__source::before{
-  content: "SOURCE: ";
+  content: attr(data-source);
+  width: fit-content;
+  /* background-color: red; */
+  color: var(--white);
+  font-weight: bolder;
+}
+
+#info__improve::before{
+  content: attr(data-improve);
+  width: fit-content;
+  /* background-color: red; */
+  color: var(--white);
+  font-weight: bolder;
+}
+
+#info__score::before{
+  content: attr(data-score);
   width: fit-content;
   /* background-color: red; */
   color: var(--white);
