@@ -149,6 +149,25 @@ main h1::after {
   font-weight: bolder;
 }
 
+.li__info textarea:focus{
+  outline: 1px solid grey;
+}
+
+.li__info textarea:focus-visible{
+  outline: 1px solid grey;
+}
+
+.li__info textarea::-webkit-scrollbar{
+  width: 2px;
+  /* height: 3px; */
+  background-color: #8888;
+}
+
+.li__info textarea::-webkit-scrollbar-thumb{
+  background: grey;
+  border-radius: 50px;
+}
+
 #info__score::before{
   content: attr(data-score);
   width: fit-content;
@@ -217,22 +236,38 @@ main ul li {
 
  .close{
   display: flex;
-    align-items: center;
-    /* align-self: center; */
-    height: 25px;
-    padding: 0px;
-    width: 40px;
-    margin: 0px;
-    font-size: 3rem;
-    justify-content: center;
-  transition: .2s ease-in-out;
+  align-items: center;
+  /* align-self: center; */
+  height: 25px !important;
+  top: 6px;
+  padding: 0px !important;
+  width: 30px !important;
+  margin: 0px 0px !important;
+  color: var(--white);
+  font-size: 3rem !important;
+  justify-content: center;
+  backdrop-filter: none !important;
+  background-color: transparent !important;
+  transition: .2s ease-in-out !important;
 }
 
 .close:hover{
-  opacity: .5;
+  opacity: .5 !important;
+  cursor: pointer;
   transition: .2s ease-in-out;
 }
 
+.close:focus{
+  outline:none;
+  outline-offset: .5px;
+  border-radius: .1em;
+}
+
+.close:focus-visible{
+  outline: 1px solid white;
+  outline-offset: .5px;
+  border-radius: .1em;
+}
 main ul li:hover {
   cursor: pointer;
   opacity: .95;
@@ -263,8 +298,8 @@ ul li {
 ul li::before {
   content: attr(data-count);
   position: absolute;
-  top: -0.6em;
-  right: -0.6em;
+  top: -0.8em;
+  right: -0.8em;
   width: 1.5em;
   height: 1.5em;
   display: flex;
@@ -373,6 +408,7 @@ ul li::before {
   background-color: tomato;
   margin: 2px;
   padding: 5px;
+  border-radius: 0.3em 0.3em;
 }
 
 .tabs label:nth-of-type(1),
