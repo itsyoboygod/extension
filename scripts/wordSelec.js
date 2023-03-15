@@ -18,11 +18,13 @@ function wordSelected() {
         chrome.runtime.sendMessage({
             source: "wordselec.js",
             payload: payload
-        }, function (response) {
-            console.log(`
-     ${response.source} , 
-     ${response.payload}
-    `)})}
+        }, 
+    //     function (response) {
+    //         console.log(`
+    //  ${response.source} , 
+    //  ${response.payload}
+    // `)}
+    )}
 }
 
 // var wordsel = document.getElementsByTagName("pre")

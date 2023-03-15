@@ -7,10 +7,10 @@ chrome.runtime.sendMessage({
   source: "popup.js",
   payload: payload
 }, function (response) {
-  console.log(`
-   ${response.source} , 
-   ${response.payload}
-  `);
+  // console.log(`
+  //  ${response.source} , 
+  //  ${response.payload}
+  // `);
 });
 
 // function word() {
@@ -35,8 +35,8 @@ chrome.runtime.sendMessage({
 //   }
 // }
   
-  var wordnik = document.getElementById("id__wordnik")
-  wordnik.innerText = "word()"
+  // var wordnik = document.getElementById("id__wordnik")
+  // wordnik.innerText = "word()"
 
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
