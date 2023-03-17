@@ -95,6 +95,8 @@ main h1::after {
   background-color: hsla(0,0%,0%,.5);
   border-radius: 0.2em;
   font-size: .7rem;
+  margin: 5px 0;
+  padding: 5px;
 }
 
 #info__id, #info__url{

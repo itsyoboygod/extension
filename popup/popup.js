@@ -52,10 +52,10 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   }
 })
 chrome.storage.local.get(['payload'], function(result) {
-  console.log(`
-    GET local storage: 
-      ${result.payload.message}
-  `);
+  // console.log(`
+  //   GET local storage: 
+  //     ${result.payload.message}
+  // `);
 
   var wordsel2 = document.getElementById("wordsel2")
   wordsel2.innerText = result.payload.message
