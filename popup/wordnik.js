@@ -39,7 +39,5 @@ ${data[0].text}
       console.error('Error handling response: ', error);
     }
   }
-
   loadJSON(url, gotData)
-
 })

@@ -26,7 +26,3 @@ function wordSelected() {
     // `)}
     )}
 }
-
-// var wordsel = document.getElementsByTagName("pre")
-// wordsel[0].innerText = payload.message
-// console.log(wordsel)

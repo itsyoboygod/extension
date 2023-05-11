@@ -7,47 +7,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boolean Judge</title>
     <link rel="stylesheet" href="style.css">
-    <script src="floatingbtn.js" defer></script>
     <script src="list.js" defer></script>
     <script src="popup.js" defer></script>
     <script src="rdm_clr.js" defer></script>
     <script src="../scripts/content.js" defer></script>
     <script src="wordnik.js" defer></script>
     <script src="../scripts/wordSelec.js" defer></script>
+    <script src="reddit_api.js"  defer></script>
 </head>
 
 <body>
-    <main>
+    <main style="margin: 5px ;">
         <button id="alert__button" data-scan="11">SCAN PAGE</button>
 
         <div class="wrapper">
             <div class="tabs">
                 <input type="radio" class="tabs__radio" name="tabs-expample" id="tab1" checked>
-                <label for="tab1" class="tabs__label info-tab-btn" data-tab="3">Page Reports</label>
+                <label for="tab1" class="tabs__label info-tab-btn" data-tab="14">Page Reports</label>
                 <div class="tabs__content">
-                    <h1></h1>
-                    <p> data-tab fake news has been reported in this page!</p>
+                    <!-- <h1></h1>
+                    <p> data-tab fake news has been reported in this page!</p> -->
                     <ul class="ul__table">
                         <li class="li__table">
                             <details name="detalhes">
                                 <summary>
-                                    <p id="id__report" data-fake="fake">REPORT#1</p>
+                                    <p id="id_report_fake" data-fake="fake" data-flair="">REPORT#1</p>
                                 </summary>
                                 <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions,
                                     international pavilions, award-winning fireworks and seasonal special events.</p>
-                                <div class="hr-container">
+                                <div class="hr-container-veryfied">
                                     <hr>
-                                    <span class="hr-text">Veryfied</span>
+                                    <span class="hr-text-veryfied">Veryfied</span>
                                     <hr>
                                 </div>
-                                <p class="veryfied">This statement is false because the source is not compatible to the text provided</p>
+                                <p class="veryfied">This statement is fake because the source is not compatible to the text provided</p>
                                 <div class="li__info__col">
                                     <div class="li__info">id: <span id="info__id" data-id="  id%12gt34"></span></div>
                                     <div class="li__info">url: <a href="https://www.google.com" id="info__url" target="_blank" data-url=" https://www.google.com"></a></div>
                                     <div class="li__info">source: <span id="info__source" data-source=" BBC News"></span></div>
                                     <div class="li__info">score: <span id="info__score" data-score=" 87%"></span></div>
+                                    <div class="li__info">reported by: <span id="info__report" data-report=" Anonymous"></span></div>
+                                    <div class="li__info">veryfied by: <span id="info__veryfied" data-veryfied=" u/xXUserXx"></span></div>
                                     <div class="li__info">improve: <span id="info__improve" data-improve=" "></span></div>
-                                    <div class="li__info">report: <span id="info__improve" data-improve=" "></span></div>
                                 </div>
                             </details>
                         </li>
@@ -56,13 +57,14 @@
                                 <summary>
                                     <p data-misleading="misleading">REPORT#2</p>
                                 </summary>
-                                <p id="wordsel2"></p>
-                                <div class="hr-container">
+                                <p id="wordsel2" style="font-size: 1rem; margin: 0; text-transform: uppercase; font-family: system-ui;"></p>
+                               <div class="hr-container-veryfied">
                                     <hr>
-                                    <span class="hr-text">Veryfied</span>
+                                    <span class="hr-text-veryfied">Veryfied</span>
                                     <hr>
                                 </div>
                                 <p id="veryfied"></p>
+                                <p style="margin-right: auto !important; margin: 0; color: gray;">Powered by: <a style="color: white;" href="http://wordnik.com" target="blank">wordnik.com</a></p>
                                 <div class="li__info__col">
                                     <div class="li__info">id: <span id="info__id" data-id="  id%12gt34"></span></div>
                                     <div class="li__info">url: <a href="https://www.google.com" id="info__url" target="_blank" data-url=" https://www.google.com"></a></div>
@@ -78,13 +80,13 @@
                                 <summary>
                                     <p data-scam="scam">REPORT#3</p>
                                 </summary>
-                                <!-- <p id="wordsel2"></p>  -->
-                                <div class="hr-container">
+                     <p id="wordsel2"></p>  
+                                <div class="hr-container-veryfied">
                                     <hr>
-                                    <span class="hr-text">Veryfied</span>
+                                    <span class="hr-text-veryfied">Veryfied</span>
                                     <hr>
                                 </div>
-                                <p class="veryfied">This statement is false because the source is not compatible to the text provided</p>
+                                <p class="veryfied">This statement is a scam because the source is not compatible to the text provided</p>
                                 <div class="li__info__col">
                                     <div class="li__info">id: <span id="info__id" data-id="  id%12gt34"></span></div>
                                     <div class="li__info">url: <a href="https://www.google.com" id="info__url" target="_blank" data-url=" https://www.google.com"></a></div>
@@ -101,13 +103,12 @@
                                     <p>REPORT#4 </p>
                                     <div class="loader"></div>
                                 </summary>
-                                <!-- <p id="wordsel2"></p>  -->
-                                <div class="hr-container">
+                                <div class="hr-container-veryfied">
                                     <hr>
-                                    <span class="hr-text">Veryfied</span>
+                                    <span class="hr-text-veryfied">Veryfied</span>
                                     <hr>
                                 </div>
-                                <p class="veryfied">This statement is false because the source is not compatible to the text provided</p>
+                                <p class="veryfied">This statement is loading...</p>
                                 <div class="li__info__col">
                                     <div class="li__info">id: <span id="info__id" data-id="  id%12gt34"></span></div>
                                     <div class="li__info">url: <a href="https://www.google.com" id="info__url" target="_blank" data-url=" https://www.google.com"></a></div>
@@ -121,17 +122,16 @@
                         <li class="li__table">
                             <details name="detalhes">
                                 <summary>
-                                    <!-- <p id="id__report" data-fake="fake">REPORT#5</p> -->
-                                    <p id="id__wordnik">wordnik</p>
+                                    <p id="id__report" data-hoax="hoax">REPORT#5</p>
                                 </summary>
                                 <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions,
                                     international pavilions, award-winning fireworks and seasonal special events.</p>
-                                <div class="hr-container">
+                                <div class="hr-container-veryfied">
                                     <hr>
-                                    <span class="hr-text">Veryfied</span>
+                                    <span class="hr-text-veryfied">Veryfied</span>
                                     <hr>
                                 </div>
-                                <p class="veryfied">This statement is false because the source is not compatible to the text provided</p>
+                                <p class="veryfied">This statement is a hoax because the source is not compatible to the text provided</p>
                                 <div class="li__info__col">
                                     <div class="li__info">id: <span id="info__id" data-id="  id%12gt34"></span></div>
                                     <div class="li__info">url: <a href="https://www.google.com" id="info__url" target="_blank" data-url=" https://www.google.com"></a></div>
@@ -145,16 +145,16 @@
                         <li class="li__table">
                             <details name="detalhes">
                                 <summary>
-                                    <p id="id__report" data-misleading="misleading">REPORT#6</p>
+                                    <p id="id__report" data-pretentious="pretentious">REPORT#6</p>
                                 </summary>
                                 <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions,
                                     international pavilions, award-winning fireworks and seasonal special events.</p>
-                                <div class="hr-container">
+                                <div class="hr-container-veryfied">
                                     <hr>
-                                    <span class="hr-text">Veryfied</span>
+                                    <span class="hr-text-veryfied">Veryfied</span>
                                     <hr>
                                 </div>
-                                <p class="veryfied">This statement is false because the source is not compatible to the text provided</p>
+                                <p class="veryfied">This statement is pretentious because the source is not compatible to the text provided</p>
                                 <div class="li__info__col">
                                     <div class="li__info">id: <span id="info__id" data-id="  id%12gt34"></span></div>
                                     <div class="li__info">url: <a href="" id="info__url" target="_blank" data-url="">URL</a></div>
@@ -172,12 +172,12 @@
                                 </summary>
                                 <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions,
                                     international pavilions, award-winning fireworks and seasonal special events.</p>
-                                <div class="hr-container">
+                                <div class="hr-container-veryfied">
                                     <hr>
-                                    <span class="hr-text">Veryfied</span>
+                                    <span class="hr-text-veryfied">Veryfied</span>
                                     <hr>
                                 </div>
-                                <p class="veryfied">This statement is false because the source is not compatible to the text provided</p>
+                                <p class="veryfied">This statement is a scam because the source is not compatible to the text provided</p>
                                 <div class="li__info__col">
                                     <div class="li__info">id: <span id="info__id" data-id="  id%12gt34"></span></div>
                                     <div class="li__info">url: <a href="https://www.google.com" id="info__url" target="_blank" data-url=" https://www.google.com"></a></div>
@@ -189,48 +189,242 @@
                             </details>
                         </li>
                         <li class="li__table">
-                            <div class="li__info__col" style="width: -webkit-fill-available;">
+                            <details name="detalhes">
+                                <summary>
+                                    <p id="id_report_false" data-false="false">REPORT#8</p>
+                                </summary>
+                                <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions,
+                                    international pavilions, award-winning fireworks and seasonal special events.</p>
+                                <div class="hr-container-veryfied">
+                                    <hr>
+                                    <span class="hr-text-veryfied">Veryfied</span>
+                                    <hr>
+                                </div>
+                                <p class="veryfied">This statement is false because the source is not compatible to the text provided</p>
+                                <div class="li__info__col">
                                     <div class="li__info">id: <span id="info__id" data-id="  id%12gt34"></span></div>
                                     <div class="li__info">url: <a href="https://www.google.com" id="info__url" target="_blank" data-url=" https://www.google.com"></a></div>
                                     <div class="li__info">source: <span id="info__source" data-source=" BBC News"></span></div>
                                     <div class="li__info">score: <span id="info__score" data-score=" 87%"></span></div>
-                                    <div class="li__info">report: <span id="info__report" data-improve=" "></span></div>
-                                    <div class="li__info">improve: <span id="info__improve" data-improve=" "></span>
-                                    </br><textarea type="" maxlength="240" style=" 
-                                        background: transparent;
-                                         background-color: hsla(0,0%,0%,.5);
-                                          border-radius: 0.2em;
-                                           font-size: .7rem;
-                                           color: white;
-                                           resize: none;
-                                           width: 290px;
-                                           margin: 5px 0;
-                                           padding: 2px;
-                                           height: 54px;
-                                           "></textarea>
-                                    </div>
+                                    <div class="li__info">reported by: <span id="info__report" data-report=" Anonymous"></span></div>
+                                    <div class="li__info">veryfied by: <span id="info__veryfied" data-veryfied=" u/xXUserXx"></span></div>
+                                    <div class="li__info">improve: <span id="info__improve" data-improve=" "></span></div>
                                 </div>
+                            </details>
                         </li>
                         <li class="li__table">
-                            <button id="optbtn">permissions</button>
+                            <details name="detalhes">
+                                <summary>
+                                    <p id="id_report_delusive" data-delusive="delusive">REPORT#9</p>
+                                </summary>
+                                <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions,
+                                    international pavilions, award-winning fireworks and seasonal special events.</p>
+                                <div class="hr-container-veryfied">
+                                    <hr>
+                                    <span class="hr-text-veryfied">Veryfied</span>
+                                    <hr>
+                                </div>
+                                <p class="veryfied">This statement is delusive because the source is not compatible to the text provided</p>
+                                <div class="li__info__col">
+                                    <div class="li__info">id: <span id="info__id" data-id="  id%12gt34"></span></div>
+                                    <div class="li__info">url: <a href="https://www.google.com" id="info__url" target="_blank" data-url=" https://www.google.com"></a></div>
+                                    <div class="li__info">source: <span id="info__source" data-source=" BBC News"></span></div>
+                                    <div class="li__info">score: <span id="info__score" data-score=" 87%"></span></div>
+                                    <div class="li__info">reported by: <span id="info__report" data-report=" Anonymous"></span></div>
+                                    <div class="li__info">veryfied by: <span id="info__veryfied" data-veryfied=" u/xXUserXx"></span></div>
+                                    <div class="li__info">improve: <span id="info__improve" data-improve=" "></span></div>
+                                </div>
+                            </details>
                         </li>
                         <li class="li__table">
-                            <button id="theButton">change popup bckg color</button>
+                            <details name="detalhes">
+                                <summary>
+                                    <p id="id_report_unclear" data-unclear="unclear">REPORT#10</p>
+                                </summary>
+                                <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions,
+                                    international pavilions, award-winning fireworks and seasonal special events.</p>
+                                <div class="hr-container-veryfied">
+                                    <hr>
+                                    <span class="hr-text-veryfied">Veryfied</span>
+                                    <hr>
+                                </div>
+                                <p class="veryfied">This statement is unclear because the source is not compatible to the text provided</p>
+                                <div class="li__info__col">
+                                    <div class="li__info">id: <span id="info__id" data-id="  id%12gt34"></span></div>
+                                    <div class="li__info">url: <a href="https://www.google.com" id="info__url" target="_blank" data-url=" https://www.google.com"></a></div>
+                                    <div class="li__info">source: <span id="info__source" data-source=" BBC News"></span></div>
+                                    <div class="li__info">score: <span id="info__score" data-score=" 87%"></span></div>
+                                    <div class="li__info">reported by: <span id="info__report" data-report=" Anonymous"></span></div>
+                                    <div class="li__info">veryfied by: <span id="info__veryfied" data-veryfied=" u/xXUserXx"></span></div>
+                                    <div class="li__info">improve: <span id="info__improve" data-improve=" "></span></div>
+                                </div>
+                            </details>
+                        </li>
+                        <li class="li__table">
+                            <details name="detalhes">
+                                <summary>
+                                    <p id="id_report_misguiding" data-misguiding="misguiding">REPORT#11</p>
+                                </summary>
+                                <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions,
+                                    international pavilions, award-winning fireworks and seasonal special events.</p>
+                                <div class="hr-container-veryfied">
+                                    <hr>
+                                    <span class="hr-text-veryfied">Veryfied</span>
+                                    <hr>
+                                </div>
+                                <p class="veryfied">This statement is misguiding because the source is not compatible to the text provided</p>
+                                <div class="li__info__col">
+                                    <div class="li__info">id: <span id="info__id" data-id="  id%12gt34"></span></div>
+                                    <div class="li__info">url: <a href="https://www.google.com" id="info__url" target="_blank" data-url=" https://www.google.com"></a></div>
+                                    <div class="li__info">source: <span id="info__source" data-source=" BBC News"></span></div>
+                                    <div class="li__info">score: <span id="info__score" data-score=" 87%"></span></div>
+                                    <div class="li__info">reported by: <span id="info__report" data-report=" Anonymous"></span></div>
+                                    <div class="li__info">veryfied by: <span id="info__veryfied" data-veryfied=" u/xXUserXx"></span></div>
+                                    <div class="li__info">improve: <span id="info__improve" data-improve=" "></span></div>
+                                </div>
+                            </details>
+                        </li>
+                        <li class="li__table">
+                            <details name="detalhes">
+                                <summary>
+                                    <p id="id_report_ambiguous" data-ambiguous="ambiguous">REPORT#12</p>
+                                </summary>
+                                <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions,
+                                    international pavilions, award-winning fireworks and seasonal special events.</p>
+                                <div class="hr-container-veryfied">
+                                    <hr>
+                                    <span class="hr-text-veryfied">Veryfied</span>
+                                    <hr>
+                                </div>
+                                <p class="veryfied">This statement is ambiguous because the source is not compatible to the text provided</p>
+                                <div class="li__info__col">
+                                    <div class="li__info">id: <span id="info__id" data-id="  id%12gt34"></span></div>
+                                    <div class="li__info">url: <a href="https://www.google.com" id="info__url" target="_blank" data-url=" https://www.google.com"></a></div>
+                                    <div class="li__info">source: <span id="info__source" data-source=" BBC News"></span></div>
+                                    <div class="li__info">score: <span id="info__score" data-score=" 87%"></span></div>
+                                    <div class="li__info">reported by: <span id="info__report" data-report=" Anonymous"></span></div>
+                                    <div class="li__info">veryfied by: <span id="info__veryfied" data-veryfied=" u/xXUserXx"></span></div>
+                                    <div class="li__info">improve: <span id="info__improve" data-improve=" "></span></div>
+                                </div>
+                            </details>
+                        </li>
+                        <li class="li__table">
+                            <details name="detalhes">
+                                <summary>
+                                    <p id="id_report_analysing" data-analysing="analysing...">REPORT#13</p>
+                                </summary>
+                                <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions,
+                                    international pavilions, award-winning fireworks and seasonal special events.</p>
+                                <div class="hr-container-analysing">
+                                    <hr>
+                                    <span class="hr-text-analysing">Analysing ...</span>
+                                    <hr>
+                                </div>
+                                <p class="analysing">This information was reported but is under analysing. No info is confirmed yet. Be aware!!</p>
+                                <div class="li__info__col">
+                                    <div class="li__info">id: <span id="info__id" data-id="  id%12gt34"></span></div>
+                                    <div class="li__info">url: <a href="https://www.google.com" id="info__url" target="_blank" data-url=" https://www.google.com"></a></div>
+                                    <div class="li__info">source: <span id="info__source" data-source=" BBC News"></span></div>
+                                    <div class="li__info">score: <span id="info__score" data-score=" 87%"></span></div>
+                                    <div class="li__info">reported by: <span id="info__report" data-report=" Anonymous"></span></div>
+                                    <div class="li__info">veryfied by: <span id="info__veryfied" data-veryfied=" u/xXUserXx"></span></div>
+                                    <div class="li__info">improve: <span id="info__improve" data-improve=" "></span></div>
+                                </div>
+                            </details>
+                        </li>
+                        <li class="li__table">
+                            <details name="detalhes">
+                                <summary>
+                                    <p id="id_report_dog_whistle" data-dog-whistle="dog whistle">REPORT#14</p>
+                                </summary>
+                                <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions,
+                                    international pavilions, award-winning fireworks and seasonal special events.</p>
+                                <div class="hr-container-veryfied">
+                                    <hr>
+                                    <span class="hr-text-veryfied">Veryfied</span>
+                                    <hr>
+                                </div>
+                                <p class="veryfied">This statement is a dog whistle because the source is not compatible to the text provided</p>
+                                <div class="li__info__col">
+                                    <div class="li__info">id: <span id="info__id" data-id="  id%12gt34"></span></div>
+                                    <div class="li__info">url: <a href="https://www.google.com" id="info__url" target="_blank" data-url=" https://www.google.com"></a></div>
+                                    <div class="li__info">source: <span id="info__source" data-source=" BBC News"></span></div>
+                                    <div class="li__info">score: <span id="info__score" data-score=" 87%"></span></div>
+                                    <div class="li__info">reported by: <span id="info__report" data-report=" Anonymous"></span></div>
+                                    <div class="li__info">veryfied by: <span id="info__veryfied" data-veryfied=" u/xXUserXx"></span></div>
+                                    <div class="li__info">improve: <span id="info__improve" data-improve=" "></span></div>
+                                </div>
+                            </details>
+                        </li>
+                        <li class="li__table">
+                            <details name="detalhes">
+                                <summary>
+                                    <p id="id_report_gossip" data-gossip="gossip">REPORT#15</p>
+                                </summary>
+                                <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions,
+                                    international pavilions, award-winning fireworks and seasonal special events.</p>
+                                <div class="hr-container-veryfied">
+                                    <hr>
+                                    <span class="hr-text-veryfied">Veryfied</span>
+                                    <hr>
+                                </div>
+                                <p class="veryfied">This statement is a gossip because the source is not compatible to the text provided</p>
+                                <div class="li__info__col">
+                                    <div class="li__info">id: <span id="info__id" data-id="  id%12gt34"></span></div>
+                                    <div class="li__info">url: <a href="https://www.google.com" id="info__url" target="_blank" data-url=" https://www.google.com"></a></div>
+                                    <div class="li__info">source: <span id="info__source" data-source=" BBC News"></span></div>
+                                    <div class="li__info">score: <span id="info__score" data-score=" 87%"></span></div>
+                                    <div class="li__info">reported by: <span id="info__report" data-report=" Anonymous"></span></div>
+                                    <div class="li__info">veryfied by: <span id="info__veryfied" data-veryfied=" u/xXUserXx"></span></div>
+                                    <div class="li__info">improve: <span id="info__improve" data-improve=" "></span></div>
+                                </div>
+                            </details>
+                        </li>
+                        <li class="li__table">
+                            <div class="li__info__col" style="width: -webkit-fill-available;">
+                                <div class="li__info">id: <span id="info__id" data-id="  id%12gt34"></span></div>
+                                <div class="li__info">url: <a href="https://www.google.com" id="info__url" target="_blank" data-url=" https://www.google.com"></a></div>
+                                <div class="li__info">source: <span id="info__source" data-source=" BBC News"></span></div>
+                                <div class="li__info">score: <span id="info__score" data-score=" 87%"></span></div>
+                                <div class="li__info">reported by: <span id="info__improve" data-report=" "></span></div>
+                                <div class="li__info">veryfied by: <span id="info__improve" data-veryfied=" "></span></div>
+                                <div class="li__info">improve: <span id="info__improve" data-improve=" "></span></div>
+                                </div>
                         </li>
                     </ul>
                 </div>
-                <input type="radio" class="tabs__radio" name="tabs-expample" id="tab2">
-                <label for="tab2" class="tabs__label">Technincal Information</label>
+                <input type="radio" class="tabs__radio" name="tabs-expample" id="tab3">
+                <label for="tab3" class="tabs__label">Report Info</label>
                 <div class="tabs__content">
-                    <h1>Technincal Information</h1>
-                    <p> data-tab fake news has been reported in this page!</p>
+                    <h1>How do i report ?</h1>
+                    <p> We are working on this, just hold 60<sup>^3</sup> seconds!</p>
                 </div>
 
-                <input type="radio" class="tabs__radio" name="tabs-expample" id="tab3">
-                <label for="tab3" class="tabs__label">Scientific Information</label>
+                <input type="radio" class="tabs__radio" name="tabs-expample" id="tab2">
+                <label for="tab2" class="tabs__label">About</label>
                 <div class="tabs__content">
-                    <h1>Scientific Information</h1>
+                    <h1>About the extension</h1>
                     <p> data-tab fake news has been reported in this page!</p>
+                    <p>
+                        xXExtension_nameXx is a chrome extension project where it scans the user's page for any fake or misleading information text info.
+                      </p>
+                      <p>
+                        The information reported is verified mainly by humans, but it might be done by AI at some point in the future if possible.
+                      </p>
+                      <p>
+                        To use the plugin, you first need to install it from the chrome app store. When everything's done, a logo will appear next to the search bar.
+                      </p>
+                      <p>
+                        When you click the logo, a panel will appear with a <code>&gt; Scan Page &lt;</code> button. Right after, the scanning process will begin. If any previously report was made in the page, a list of the reports will show up along with the text marked up with a unique background color for visual feedback, and the colorful flair next to the report index.
+                      </p>
+                      <p>
+                        You can hover your mouse on the list, and click it. This action will open the report. The report text will appear first and then right after, the verified corrected text. Next bellow, a cluster of default information, such as:
+                      </p>
+                        <p>ID: for the id of the report</p>
+                        <p>URL: for the pnk for the completed thread on Reddit</p>
+                        <p>SOURCE: for the source of the report</p>
+                        <p>SCORE: for the percentage approvment of the report</p>
+                        <p>IMPROVE: for a pnk of the thread on Reddit, if the user wants to add or remove some info, or anything to make the report better.</p>
                 </div>
             </div>
         </div>
@@ -239,9 +433,8 @@
             <p><a href="#">policy</a></p>
             <p><a href="#">about</a></p>
         </footer>
-
-
     </main>
+
 </body>
 
 </html>

@@ -30,6 +30,7 @@
               "./scripts/wordSelec.js", 
               "background.js", 
               "./popup/popup.js",
+              "./popup/reddit_api.js",
               "./popup/rdm_clr.js",
               "./popup/wordnik.js"
             ]

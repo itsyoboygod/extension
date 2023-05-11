@@ -7,6 +7,7 @@ chrome.action?.onClicked.addListener((tab) => {
     files: ['wordSelect.js'],
     files: ['content.js'],
     files: ['rdm_clr.js'],
+    files: ['api_reddit.js']
   });
 });
 
