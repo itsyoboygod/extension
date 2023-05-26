@@ -12,6 +12,9 @@
     <script src="rdm_clr.js" defer></script>
     <script src="../scripts/content.js" defer></script>
     <script src="wordnik.js" defer></script>
+    <script src="read_json.js" defer></script>
+    <script src="get_flair_post_storage.js" defer></script>
+    <script src="set_flair_post_storage.js" defer></script>
     <script src="../scripts/wordSelec.js" defer></script>
     <script src="reddit_api.js"  defer></script>
 </head>
@@ -27,20 +30,21 @@
                 <div class="tabs__content">
                     <!-- <h1></h1>
                     <p> data-tab fake news has been reported in this page!</p> -->
+                    <p id="testejson"> the json should appear here</p>
                     <ul class="ul__table">
                         <li class="li__table">
                             <details name="detalhes">
                                 <summary>
-                                    <p id="id_report_fake" data-fake="fake" data-flair="">REPORT#1</p>
+                                    <p id="id_report_fake" data-fake="fake">REPORT#1</p>
                                 </summary>
-                                <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions,
+                                <p id="id_report_title">Epcot is a theme park at Walt Disney World Resort featuring exciting attractions,
                                     international pavilions, award-winning fireworks and seasonal special events.</p>
                                 <div class="hr-container-veryfied">
                                     <hr>
                                     <span class="hr-text-veryfied">Veryfied</span>
                                     <hr>
                                 </div>
-                                <p class="veryfied">This statement is fake because the source is not compatible to the text provided</p>
+                                <p class="veryfied" id="id_report_text">This statement is fake because the source is not compatible to the text provided</p>
                                 <div class="li__info__col">
                                     <div class="li__info">id: <span id="info__id" data-id="  id%12gt34"></span></div>
                                     <div class="li__info">url: <a href="https://www.google.com" id="info__url" target="_blank" data-url=" https://www.google.com"></a></div>
@@ -55,7 +59,7 @@
                         <li class="li__table">
                             <details>
                                 <summary>
-                                    <p data-misleading="misleading">REPORT#2</p>
+                                    <p id="id_report_misleading" data-misleading="misleading">REPORT#2</p>
                                 </summary>
                                 <p id="wordsel2" style="font-size: 1rem; margin: 0; text-transform: uppercase; font-family: system-ui;"></p>
                                <div class="hr-container-veryfied">
@@ -78,7 +82,7 @@
                         <li class="li__table">
                             <details>
                                 <summary>
-                                    <p data-scam="scam">REPORT#3</p>
+                                    <p id="id_report_scam" data-scam="scam">REPORT#3</p>
                                 </summary>
                      <p id="wordsel2"></p>  
                                 <div class="hr-container-veryfied">

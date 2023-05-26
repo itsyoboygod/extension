@@ -9,8 +9,8 @@ const reddit = new snoowrap({
   userAgent: 'Marcus',
   clientId: 'aHqR_ECfwPEHP-2Kl7G8sg',
   clientSecret: 'jRIYVzM9xpNrovkBtxZ0BwlkBjvKgA',
-  username: 'Marcus_Aguiar',
-  password: 'diaensolarado'
+  username: 'teste',
+  password: '*'
 })
 
 // ---------- FOR FLAIRS FROM A POST----------

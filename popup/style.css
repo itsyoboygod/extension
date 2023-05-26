@@ -547,7 +547,7 @@ ul li {
 
 li details summary p::before{
   position: absolute;
-  right: -4em;
+  left: 6rem;
   width: fit-content;
   height: 0.7em;
   display: flex;
@@ -631,7 +631,6 @@ li:nth-of-type(1) details summary p::before{
 li:nth-of-type(2) details summary p::before{
   content: attr(data-misleading);
   background-color: var(--clr-data-misleading);
-  right: -7.3em;
 }
 
 li:nth-of-type(3) details summary p::before{
@@ -647,7 +646,6 @@ li:nth-of-type(5) details summary p::before{
 li:nth-of-type(6) details summary p::before{
   content: attr(data-pretentious);
   background-color: var(--clr-data-pretentious);
-  right: -7.8em;
 }
 
 li:nth-of-type(7) details summary p::before{
@@ -658,49 +656,41 @@ li:nth-of-type(7) details summary p::before{
 li:nth-of-type(8) details summary p::before{
   content: attr(data-false);
   background-color: var(--clr-data-false);
-  right: -4.5em;
 }
 
 li:nth-of-type(9) details summary p::before{
   content: attr(data-delusive);
   background-color: var(--clr-data-delusive);
-  right: -6em;
 }
 
 li:nth-of-type(10) details summary p::before{
   content: attr(data-unclear);
   background-color: var(--clr-data-unclear);
-  right: -4.7em;
 }
 
 li:nth-of-type(11) details summary p::before{
   content: attr(data-misguiding);
   background-color: var(--clr-data-misguiding);
-  right: -6.5em;
 }
 
 li:nth-of-type(12) details summary p::before{
   content: attr(data-ambiguous);
   background-color: var(--clr-data-ambiguous);
-  right: -6em;
 }
 
 li:nth-of-type(13) details summary p::before{
   content: attr(data-analysing);
   background-color: var(--clr-data-analysing);
-  right: -7.5em;
 }
 
 li:nth-of-type(14) details summary p::before{
   content: attr(data-dog-whistle);
   background-color: var(--clr-data-dog-whistle);
-  right: -7em;
 }
 
 li:nth-of-type(15) details summary p::before{
   content: attr(data-gossip);
   background-color: var(--clr-data-gossip);
-  right: -4.2em;
 }
 
 .loader {

@@ -12,6 +12,18 @@
         "default_title": "Boolean Judge"
       },
     "permissions": ["activeTab", "scripting", "contextMenus","storage", "tabs"],
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "img/*.png",
+          "popup/user_flair.json",
+          "popup/post_flair.json",
+          "popup/post_content.json"
+        ],
+        "matches": [
+          "https://api.tvmaze.com/*"
+        ]
+      }],
     "host_permissions": [
       "https://developer.chrome.com/*"
     ],
@@ -29,17 +41,12 @@
               "./scripts/optpermissions.js", 
               "./scripts/wordSelec.js", 
               "background.js", 
+              "./popup/read_json.js",
               "./popup/popup.js",
               "./popup/reddit_api.js",
               "./popup/rdm_clr.js",
               "./popup/wordnik.js"
             ]
         }
-    ],
-    "web_accessible_resources": [
-      {
-        "resources": [ "img/*.png" ],
-        "matches": [ "https://example.com/*" ]
-      }
     ]
   }

@@ -20,8 +20,8 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
            ${request.payload.message}
            `);
     sendResponse({
-      source: "popupResponse",
-      payload: "Hello from popup!"
+      // source: "popupResponse",
+      // payload: "Hello from popup!"
     });
   }
 })
@@ -31,6 +31,6 @@ chrome.storage.local.get(['payload'], function(result) {
   //     ${result.payload.message}
   // `);
 
-  var wordsel2 = document.getElementById("wordsel2")
-  wordsel2.innerText = result.payload.message
+  // var wordsel2 = document.getElementById("wordsel2")
+  // wordsel2.innerText = result.payload.message
 });

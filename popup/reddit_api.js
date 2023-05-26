@@ -1,39 +1,28 @@
-const fetch = require('node-fetch');
-//  import fetch from 'node:http';
-const http = require('http')
+// // console.log("./popup/reddit_api.js is working !!")
 
-async function getFlairText(subreddit, postId) {
-  let url = `https://www.reddit.com/r/${subreddit}/comments/${postId}.json`;
-  url = url.replace(/\s+/g, '');
+// chrome.storage.local.get(['payload'], function (result) {
+//     console.log(`
+// REDDIT_API storage: 
+// ${result.payload.message}
+//       `);
+  
+//     function gotData(data = result.payload.message){ 
+//         const desiredValues = data
+//         const flair_senai = 'SENAI/GRADU';
+//         const flair_anhembi = 'ANHAM/PUB';
+//         const flair_uni9 = 'UNI9/VETER';
 
-  try {
-    const response = await fetch(url, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0',
-        'Accept': 'application/json',
-      }
-    });
-    const data = await response.json();
-    if (data && data[0].data.children[0].data.link_flair_text) {
-      console.log(`
-        ${data[0].data.children[0].data.link_flair_text}        
-      `);
-    } else {
-      console.log('The data object is not defined or has no elements');
-    }
-  } catch (error) {
-    console.error('Error handling response: ', error);
-  }
-}
+//         const regex = new RegExp(`\\b${desiredValues.join('\\b|\\b')}\\b`);
+//         const data_senai = regex.test(flair_senai);
+//         const data_anhembi = regex.test(flair_anhembi);
 
-getFlairText('AskReddit', 'oeo5q3');
-
-chrome.storage.local.get(['payload'], function (result) {
-  console.log(`
-WORDNIK storage: 
-${result.payload.message}
-    `);
-
-  let word = result.payload.message
-
-})
+//             var senaiFlag = document.getElementById("id_report_fake");
+//             senaiFlag.setAttribute('data-fake', flair_senai);
+//             console.log("bruh")
+//             var anhembiFlag = document.getElementById("id_report_misleading");
+//             anhembiFlag.setAttribute('data-misleading', flair_anhembi);
+//             var uni9Flag = document.getElementById("id_report_uni9");
+//             uni9Flag.setAttribute('data-scam', flair_uni9);
+//     }
+//     gotData()
+//   })
