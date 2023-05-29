@@ -15,9 +15,9 @@ fetch(chrome.runtime.getURL(filePath))
     };
 
     chrome.storage.local.set({ payload }, () => {
-      console.log(`
-Data stored in local storage: ${payload.message}
-      `);
+//       console.log(`
+// Data stored in local storage: ${payload.message}
+//       `);
     });
 
     // Send a message to the background script

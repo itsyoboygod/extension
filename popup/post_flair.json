@@ -1,1 +1,18 @@
-[{"post_id": "13rp4xi", "flair": "fake"}, {"post_id": "e32h16", "flair": "EXERC"}, {"post_id": "e354qx", "flair": "PROVA"}]
+[
+    {
+        "post_id": "e354qx",
+        "post_flair": "PROVA"
+    },
+    {
+        "post_id": "e32h16",
+        "post_flair": "EXERC"
+    },
+    {
+        "post_id": "13rp4xi",
+        "post_flair": "fake"
+    },
+    {
+        "post_id": "e32a2x",
+        "post_flair": "TCC"
+    }
+]

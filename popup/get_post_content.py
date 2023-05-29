@@ -5,7 +5,10 @@ reddit = praw.Reddit(client_id='aHqR_ECfwPEHP-2Kl7G8sg',
                      client_secret='jRIYVzM9xpNrovkBtxZ0BwlkBjvKgA',
                      user_agent='test')
 
-post_id = "e354qx"  # Replace with the post ID of your choice
+# post_id = "e354qx"  # Replace with the post ID of your choice
+# post_id = "e32h16"  # Replace with the post ID of your choice
+post_id = "13rp4xi"  # Replace with the post ID of your choice
+# post_id = "e32a2x"  # Replace with the post ID of your choice
 
 # Retrieve the submission based on the post ID
 submission = reddit.submission(id=post_id)

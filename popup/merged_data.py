@@ -21,20 +21,21 @@ combined_data = []
 # Iterate over the post_flairs
 for post_flair in post_flairs:
     post_id = post_flair['post_id']
-    flair = post_flair['flair']
+    flair = post_flair['post_flair']
 
     # Check if the post ID already exists in the combined data
     if any(entry['post_id'] == post_id for entry in combined_data):
         continue
 
     # Find the matching user flair and post content for the post ID
-    matching_user_flair = next((user_flair for user_flair in user_flairs if user_flair == post_id), None)
+    matching_user_flair = next((user_flair for user_flair in user_flairs if user_flair['post_id'] == post_id), None)
     matching_post_content = next((content for content in post_content if content['id_post'] == post_id), None)
 
     # Create a new dictionary with the combined data
     combined_entry = {
         'post_id': post_id,
-        'user_flair': matching_user_flair if matching_user_flair else None,
+        'post_flair': flair,
+        'user_flair': matching_user_flair['flair'] if matching_user_flair else None,
         'title': matching_post_content['title'] if matching_post_content else None,
         'text': matching_post_content['text'] if matching_post_content else None
     }
