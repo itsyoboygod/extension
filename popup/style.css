@@ -357,6 +357,7 @@ main ul li p {
   font-family: monospace;
   /* position: relative; */
   align-self: center;
+  overflow-wrap: break-word;
 }
 
 main ul li:nth-child(odd) {
@@ -560,6 +561,27 @@ li details summary p::before{
   font-weight: 700;
   font-size: 1rem;
 }
+
+/* .highlight{
+  background-color: grey;
+}
+
+.highlight-after::after{
+  content: 'bruh';
+  position: absolute;
+  right: -8em;
+  width: fit-content;
+  height: 0.7em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.2em;
+  color: white;
+  font-family: monospace;
+  padding: 5px;
+  font-weight: 700;
+  font-size: 1rem;
+} */
 
 li details summary p::after{
   position: absolute;

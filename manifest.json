@@ -45,6 +45,7 @@
               "./popup/popup.js",
               "./popup/reddit_api.js",
               "./popup/rdm_clr.js",
+              "./scripts/scambtn.js",
               "./popup/wordnik.js"
             ]
         }

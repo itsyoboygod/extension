@@ -8,6 +8,7 @@ chrome.action?.onClicked.addListener((tab) => {
     files: ['content.js'],
     files: ['rdm_clr.js'],
     files: ['read_json.js'],
+    files: ['scambtn.js'],
     files: ['api_reddit.js']
   });
 });
