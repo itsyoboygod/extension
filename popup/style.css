@@ -265,18 +265,23 @@ main h1::after {
 }
 
 
-#alert__button {
-  margin: 5px;
+#id_scan-btn {
+  margin: 2px;
   padding: 10px;
   border: none;
-  border-radius: 2vw 2vh;
-  transition: .5s;
+  border-radius: 8px;
   position: relative;
   width: -webkit-fill-available;
   font-size: 2rem;
+  font-family: sans-serif;
+  transition: .2s ease-in-out;
+  backdrop-filter: blur(2px);
+  text-align: center;
+  background: transparent;
+  background-color: hsla(0,0%,50%,.3);
 }
 
-#alert__button:hover {
+#id_scan-btn:hover {
   opacity: .5;
   transition: .5s;
   cursor: pointer;
@@ -561,11 +566,13 @@ li details summary p::before{
   font-weight: 700;
   font-size: 1rem;
 }
-
-/* .highlight{
+/* 
+ .highlight{
   background-color: grey;
-}
+  height: min-content;
+} */
 
+/*
 .highlight-after::after{
   content: 'bruh';
   position: absolute;

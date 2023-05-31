@@ -13,31 +13,35 @@ chrome.action?.onClicked.addListener((tab) => {
   });
 });
 
+
+let scanTabId = null; // To keep track of the active tab for scanning
+
+
 // Listen for messages from popup
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    
+
   if (request.source === "popup.js") {
-      // console.log(`
-      //  ${request.source} , 
-      //  ${request.payload.message}
-      // `);
-      sendResponse({ 
+    // console.log(`
+    //  ${request.source} , 
+    //  ${request.payload.message}
+    // `);
+    sendResponse({
       //     source: "backgroundResponse", 
       //     payload: "Hello from background!" 
-      });
+    });
   }
 
   let window = self
   window.word = "coding train"
   if (request.source === "wordselec.js") {
-      // console.log(`
-      //  ${request.source} , 
-      //  ${window.word = request.payload.message}
-      // `);
-      sendResponse({ 
+    // console.log(`
+    //  ${request.source} , 
+    //  ${window.word = request.payload.message}
+    // `);
+    sendResponse({
       //     source: "backgroundResponse", 
       //     payload: "Hello from background!" 
-      });
+    });
   }
 
   if (request.source === "read_json.js") {
@@ -45,8 +49,10 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     //  ${request.source} , 
     //  ${request.payload.message}
     // `);
-    sendResponse({ 
-        // source: "backgroundResponse", 
-        // payload: "Hello from background!" 
+    sendResponse({
+      // source: "backgroundResponse", 
+      // payload: "Hello from background!" 
     });
-}});
+
+  }
+});
