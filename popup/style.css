@@ -96,6 +96,10 @@ main h1::after {
 } */
 
 
+#id_span_match{
+  background-color: none !important;
+}
+
 .li__table button{
   margin: 2px;
   padding: 2px;
@@ -566,11 +570,19 @@ li details summary p::before{
   font-weight: 700;
   font-size: 1rem;
 }
-/* 
+
  .highlight{
-  background-color: grey;
-  height: min-content;
-} */
+  background-color: transparent !important;
+}
+
+.highlight p{
+  font-weight: normal !important;
+}
+
+.highlight i{
+  display:  none !important;
+}
+
 
 /*
 .highlight-after::after{
@@ -665,6 +677,11 @@ li:nth-of-type(3) details summary p::before{
 li:nth-of-type(4) details summary p::before{
   content: attr(data-flair);
   background-color: var(--clr-data-hoax);
+}
+
+li:nth-of-type(5) details summary p::before{
+  content: attr(data-flair);
+  background-color: var(--clr-data-pretentious);
 }
 
 li:nth-of-type(6) details summary p::before{

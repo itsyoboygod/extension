@@ -8,7 +8,10 @@ reddit = praw.Reddit(client_id='aHqR_ECfwPEHP-2Kl7G8sg',
 # post_id = "e354qx"  # Replace with the post ID of your choice
 # post_id = "e32h16"  # Replace with the post ID of your choice
 # post_id = "13rp4xi"  # Replace with the post ID of your choice
-post_id = "e32a2x"  # Replace with the post ID of your choice
+# post_id = "e32a2x"  # Replace with the post ID of your choice
+# post_id = "13xhcos"  # Replace with the post ID of your choice
+post_id = "13xp391"  # Replace with the post ID of your choice
+
 
 # Load existing data from post_flair.json if it exists
 try:

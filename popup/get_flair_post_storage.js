@@ -69,7 +69,7 @@ ${result.payload.message}
     return liElement;
   }
 
-  function gotData(data = result.payload.message) {
+  function gotData(titles, data = result.payload.message) {
     if (typeof data === 'string') {
       // Parse the data string as JSON
       data = JSON.parse(data);
@@ -81,15 +81,19 @@ ${result.payload.message}
       ulElement.classList.add('ul__table');
 
       data.forEach((entry, index) => {
-        const postElement = createPostElement(entry);
-        ulElement.appendChild(postElement);
-    
-        // Get the reportNumber element in the current postElement
-        const reportNumberElement = postElement.querySelector('#id_report_data');
-        if (reportNumberElement) {
-          // Set the post_flair value as the data-flair attribute value
-          const postFlair = entry.post_flair;
-          reportNumberElement.setAttribute('data-flair', postFlair);
+        const trimmedTitle = entry.title.trim();
+        if (titles.includes(trimmedTitle)) {
+          // Create <li> element only for matching titles
+          const postElement = createPostElement(entry);
+          ulElement.appendChild(postElement);
+
+          // Get the reportNumber element in the current postElement
+          const reportNumberElement = postElement.querySelector('#id_report_data');
+          if (reportNumberElement) {
+            // Set the post_flair value as the data-flair attribute value
+            const postFlair = entry.post_flair;
+            reportNumberElement.setAttribute('data-flair', postFlair);
+          }
         }
       });
 
@@ -113,8 +117,6 @@ ${result.payload.message}
     } else {
       console.error('Page Reports label not found.');
     }
-
-    
     } else {
       // Data is a single object
       const postElement = createPostElement(data);
@@ -133,5 +135,6 @@ ${result.payload.message}
     }
   }
 
-  gotData();
+  const titles = ['tt11281500', 'tt12345678', 'tt87654321'];
+  gotData(titles);
 });
