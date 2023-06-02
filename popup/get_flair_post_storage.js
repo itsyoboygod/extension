@@ -80,6 +80,8 @@ ${result.payload.message}
       const ulElement = document.createElement('ul');
       ulElement.classList.add('ul__table');
 
+      let hasMatchingData = false; // Flag to check if any matching data is found
+
       data.forEach((entry, index) => {
         const trimmedTitle = entry.title.trim();
         if (titles.includes(trimmedTitle)) {
@@ -94,12 +96,17 @@ ${result.payload.message}
             const postFlair = entry.post_flair;
             reportNumberElement.setAttribute('data-flair', postFlair);
           }
+          hasMatchingData = true;
         }
       });
 
       // Add the generated HTML to the popup.html
       const popupContainer = document.getElementById('popup-container');
-      popupContainer.appendChild(ulElement);
+      if (hasMatchingData) {
+        popupContainer.appendChild(ulElement);
+      } else {
+        popupContainer.textContent = 'No matching data found.';
+      }
 
          // Get all the <li> elements
     const liElements = document.querySelectorAll('.li__table');
@@ -135,6 +142,6 @@ ${result.payload.message}
     }
   }
 
-  const titles = ['tt11281500', 'tt12345678', 'tt87654321'];
-  gotData(titles);
+  const xtitles = ['tt11281500', 'tt20600980', '0.90839505', 'You may also be interested in', 'How gun violence is reshaping American lives'];
+  gotData(xtitles);
 });
