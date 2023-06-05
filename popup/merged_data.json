@@ -1,1 +1,110 @@
-[{"post_id": "e354qx", "post_flair": "PROVA", "user_flair": null, "title": "teste", "text": "hi!"}, {"post_id": "e32h16", "post_flair": "EXERC", "user_flair": null, "title": "teste", "text": "testetestetestetestetestetesteteste"}, {"post_id": "13rp4xi", "post_flair": "fake", "user_flair": null, "title": "teste fake extension", "text": "d342d1234edewd34d34d3eew3d"}, {"post_id": "e32a2x", "post_flair": "TCC", "user_flair": null, "title": "BACHARELOVE has been created", "text": "Bacharelado n\u00e3o \u00e9 roubado"}, {"post_id": "13xhcos", "post_flair": "EST\u00c1GIO", "user_flair": null, "title": "tt11281500", "text": "this is a test for matching data for the extension !!"}, {"post_id": "13xp391", "post_flair": "D\u00daVIDA", "user_flair": null, "title": "tt20600980", "text": " this is a test for matching data for the extension !!"}, {"post_id": "13yj9p3", "post_flair": "PROJSem", "user_flair": null, "title": "0.90839505", "text": "new test for the chrome extension !!  \ud83d\ude80 \ud83d\ude80"}, {"post_id": "13yjkqp", "post_flair": "DP", "user_flair": null, "title": "You may also be interested in", "text": "this is a test for chrome extension , source from bbc news !!"}, {"post_id": "13yjrb5", "post_flair": "PROV\u00c3O", "user_flair": null, "title": "How gun violence is reshaping American lives", "text": "Another teste from bbc news , in the same webpage !"}]
+[
+    {
+        "post_id": "e354qx",
+        "post_flair": "PROVA",
+        "user_flair": null,
+        "title": "teste",
+        "text": "hi!",
+        "fURL": []
+    },
+    {
+        "post_id": "e32h16",
+        "post_flair": "EXERC",
+        "user_flair": null,
+        "title": "teste",
+        "text": "testetestetestetestetestetesteteste",
+        "fURL": []
+    },
+    {
+        "post_id": "13rp4xi",
+        "post_flair": "fake",
+        "user_flair": null,
+        "title": "teste fake extension",
+        "text": "d342d1234edewd34d34d3eew3d",
+        "fURL": []
+    },
+    {
+        "post_id": "e32a2x",
+        "post_flair": "TCC",
+        "user_flair": null,
+        "title": "BACHARELOVE has been created",
+        "text": "Bacharelado n\u00e3o \u00e9 roubado",
+        "fURL": []
+    },
+    {
+        "post_id": "13xhcos",
+        "post_flair": "EST\u00c1GIO",
+        "user_flair": null,
+        "title": "tt11281500",
+        "text": "this is a test for matching data for the extension !!",
+        "fURL": []
+    },
+    {
+        "post_id": "13xp391",
+        "post_flair": "D\u00daVIDA",
+        "user_flair": null,
+        "title": "tt20600980",
+        "text": " this is a test for matching data for the extension !!",
+        "fURL": []
+    },
+    {
+        "post_id": "13yj9p3",
+        "post_flair": "PROJSem",
+        "user_flair": null,
+        "title": "0.90839505",
+        "text": "new test for the chrome extension !!  \ud83d\ude80 \ud83d\ude80",
+        "fURL": []
+    },
+    {
+        "post_id": "13yjkqp",
+        "post_flair": "DP",
+        "user_flair": null,
+        "title": "You may also be interested in",
+        "text": "this is a test for chrome extension , source from bbc news !!",
+        "fURL": []
+    },
+    {
+        "post_id": "13yjrb5",
+        "post_flair": "PROV\u00c3O",
+        "user_flair": null,
+        "title": "How gun violence is reshaping American lives",
+        "text": "Another teste from bbc news , in the same webpage !",
+        "fURL": []
+    },
+    {
+        "post_id": "141f0vg",
+        "post_flair": "MISLEADING",
+        "user_flair": null,
+        "title": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+        "text": "This statemaent is misleading because,  **Lorem Ipsum** is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\n\nfURL: https://www.lipsum.com/",
+        "fURL": []
+    },
+    {
+        "post_id": "141ki0l",
+        "post_flair": "PRETENTIOUS",
+        "user_flair": null,
+        "title": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+        "text": "this content is pretentious because,  Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text\n\nfURL: [https://www.lipsum.com/](https://www.lipsum.com/)",
+        "fURL": [
+            "https://www.lipsum.com/"
+        ]
+    },
+    {
+        "post_id": "141n4ns",
+        "post_flair": "DELUSIVE",
+        "user_flair": null,
+        "title": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form",
+        "text": "This text is delusive beacause ,   All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet",
+        "fURL": []
+    },
+    {
+        "post_id": "141nbu6",
+        "post_flair": "UNCLEAR",
+        "user_flair": null,
+        "title": "Can you help translate this site into a foreign language ?",
+        "text": " Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source\n\nfURL: [https://www.lipsum.com/](https://www.lipsum.com/)",
+        "fURL": [
+            "https://www.lipsum.com/"
+        ]
+    }
+]

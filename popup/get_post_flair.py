@@ -5,17 +5,8 @@ reddit = praw.Reddit(client_id='aHqR_ECfwPEHP-2Kl7G8sg',
                      client_secret='jRIYVzM9xpNrovkBtxZ0BwlkBjvKgA',
                      user_agent='test')
 
-# post_id = "e354qx"  # Replace with the post ID of your choice
-# post_id = "e32h16"  # Replace with the post ID of your choice
-# post_id = "13rp4xi"  # Replace with the post ID of your choice
-# post_id = "e32a2x"  # Replace with the post ID of your choice
-# post_id = "13xhcos"  # Replace with the post ID of your choice
-# post_id = "13xp391"  # Replace with the post ID of your choice
-# post_id = "13yj9p3"  # Replace with the post ID of your choice
-# post_id = "13yjkqp"  # Replace with the post ID of your choice
-post_id = "13yjrb5"  # Replace with the post ID of your choice
-
-
+# Add the new post_id to the array
+post_id = "141nbu6"  # Replace with the post ID of your choice
 
 # Load existing data from post_flair.json if it exists
 try:
@@ -24,25 +15,35 @@ try:
 except FileNotFoundError:
     data_list = []
 
-# Retrieve the submission based on the post ID
-submission = reddit.submission(id=post_id)
+# Check if the post ID already exists in the data_list
+if any(data['post_id'] == post_id for data in data_list):
+    print(f"Post ID '{post_id}' already exists in post_flair.json. Skipping.")
+else:
+    # Retrieve the submission based on the post ID
+    try:
+        submission = reddit.submission(id=post_id)
+    except praw.exceptions.PRAWException:
+        print(f"Invalid post ID '{post_id}'. Skipping.")
+        submission = None
 
-# Get the link flair of the submission
-post_flair = submission.link_flair_text
+    # Get the link flair of the submission if it exists
+    post_flair = submission.link_flair_text if submission else None
 
-# Create a dictionary to store the post ID and flair
-data = {
-    'post_id': post_id,
-    'post_flair': post_flair
-}
+    # Create a dictionary to store the post ID and flair
+    data = {
+        'post_id': post_id,
+        'post_flair': post_flair
+    }
 
-# Add new data to the existing list if it doesn't exist
-if post_flair and data not in data_list:
-    data_list.append(data)
+    # Add new data to the existing list if it doesn't exist
+    if post_flair:
+        data_list.append(data)
+        print(f"Post ID '{post_id}' processed successfully.")
+    else:
+        print(f"Post ID '{post_id}' doesn't have a link flair or is invalid. Skipping.")
 
-# Save the updated data list to post_flair.json
-with open('post_flair.json', 'w') as file:
-    json.dump(data_list, file)
+    # Save the updated data list to post_flair.json
+    with open('post_flair.json', 'w') as file:
+        json.dump(data_list, file)
 
-print(post_flair)
-print("Data exported to post_flair.json file.")
+    print("Data exported to post_flair.json file.")

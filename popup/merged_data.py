@@ -37,7 +37,8 @@ for post_flair in post_flairs:
         'post_flair': flair,
         'user_flair': matching_user_flair['flair'] if matching_user_flair else None,
         'title': matching_post_content['title'] if matching_post_content else None,
-        'text': matching_post_content['text'] if matching_post_content else None
+        'text': matching_post_content['text'] if matching_post_content else None,
+        'fURL': matching_post_content['fURL'] if matching_post_content else []
     }
 
     # Append the combined entry to the list

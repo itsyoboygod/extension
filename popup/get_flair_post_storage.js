@@ -43,7 +43,7 @@ ${result.payload.message}
 
     const infoElements = [
       { label: 'id', id: 'info__id', dataAttribute: 'data-id', dataValue: postData.post_id },
-      { label: 'url', id: 'info__url', dataAttribute: 'data-url', dataValue: postData.url },
+      { label: 'fURL', id: 'info__url', dataAttribute: 'data-url', dataValue: postData.fURL },
       { label: 'source', id: 'info__source', dataAttribute: 'data-source', dataValue: postData.source },
       { label: 'score', id: 'info__score', dataAttribute: 'data-score', dataValue: postData.score },
       { label: 'reported by', id: 'info__report', dataAttribute: 'data-report', dataValue: postData.reportedBy },
@@ -142,6 +142,18 @@ ${result.payload.message}
     }
   }
 
-  const xtitles = ['tt11281500', 'tt20600980', '0.90839505', 'You may also be interested in', 'How gun violence is reshaping American lives'];
-  gotData(xtitles);
+  const xtitles = [
+    "tt11281500", 
+    "tt20600980", 
+    "0.90839505", 
+    "You may also be interested in", 
+    "How gun violence is reshaping American lives", 
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s",
+    "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+    "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form",
+    "Can you help translate this site into a foreign language ?"
+  ];
+  const escapedXtitles = xtitles.map(title => title.replace(/'/g, "\\'"));  
+  gotData(escapedXtitles);
 });
+
