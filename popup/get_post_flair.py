@@ -6,7 +6,7 @@ reddit = praw.Reddit(client_id='aHqR_ECfwPEHP-2Kl7G8sg',
                      user_agent='test')
 
 # Add the new post_id to the array
-post_id = "141nbu6"  # Replace with the post ID of your choice
+post_id = "142ky9t"  # Replace with the post ID of your choice
 
 # Load existing data from post_flair.json if it exists
 try:

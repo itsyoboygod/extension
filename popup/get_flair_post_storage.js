@@ -1,6 +1,24 @@
 // console.log("./popup/get_flair_post.js.js is working !!")
 
-chrome.storage.local.get(['payload'], function (result) {
+chrome.storage.local.get(['payload', 'dataToStore'], function (result) {
+ 
+  const user_url = result.dataToStore.usrurl;
+  const matching_titles = result.dataToStore.matchingTitles;
+
+  if (Array.isArray(matching_titles)) {
+    matching_titles.forEach((each_title) => {
+      const dta_titles = each_title;
+      console.log(dta_titles);
+    });
+
+    console.log(`executei : `, matching_titles, user_url);
+    console.log(`result : `, result);
+
+    // Rest of the code...
+  } else {
+    console.error('Matching titles is not an array');
+  }
+
   console.log(`
 GET_POST_FLAIR_STORAGE storage: 
 ${result.payload.message}
@@ -12,7 +30,7 @@ ${result.payload.message}
 
     const detailsElement = document.createElement('details');
     detailsElement.setAttribute('name', 'detalhes');
-  
+
     const summaryElement = document.createElement('summary');
     const reportNumber = document.createElement('p');
     reportNumber.id = 'id_report_data';
@@ -56,12 +74,21 @@ ${result.payload.message}
       infoContainer.classList.add('li__info');
       const labelSpan = document.createElement('span');
       labelSpan.textContent = info.label + ': ';
-      const valueSpan = document.createElement('span');
-      valueSpan.id = info.id;
-      valueSpan.setAttribute(info.dataAttribute, info.dataValue);
-      infoContainer.append(labelSpan, valueSpan);
+      const valueElement = info.id === 'info__url' ? document.createElement('a') : document.createElement('span');
+      valueElement.id = info.id;
+      valueElement.setAttribute(info.dataAttribute, info.dataValue);
+
+      if (info.id === 'info__url') {
+        valueElement.href = postData.fURL;
+        valueElement.textContent = postData.fURL;
+      } else {
+        valueElement.textContent = info.dataValue;
+      }
+
+      infoContainer.append(labelSpan, valueElement);
       infoColElement.appendChild(infoContainer);
     });
+
 
     detailsElement.append(summaryElement, titleElement, hrContainerElement, textElement, infoColElement);
     liElement.appendChild(detailsElement);
@@ -81,22 +108,24 @@ ${result.payload.message}
       ulElement.classList.add('ul__table');
 
       let hasMatchingData = false; // Flag to check if any matching data is found
-
+   
       data.forEach((entry, index) => {
         const trimmedTitle = entry.title.trim();
-        if (titles.includes(trimmedTitle)) {
-          // Create <li> element only for matching titles
-          const postElement = createPostElement(entry);
-          ulElement.appendChild(postElement);
+        if (entry.fURL == user_url && matching_titles.includes(entry.title)) {
+          if (titles.includes(trimmedTitle)) {
+            // Create <li> element only for matching titles
+            const postElement = createPostElement(entry);
+            ulElement.appendChild(postElement);
 
-          // Get the reportNumber element in the current postElement
-          const reportNumberElement = postElement.querySelector('#id_report_data');
-          if (reportNumberElement) {
-            // Set the post_flair value as the data-flair attribute value
-            const postFlair = entry.post_flair;
-            reportNumberElement.setAttribute('data-flair', postFlair);
+            // Get the reportNumber element in the current postElement
+            const reportNumberElement = postElement.querySelector('#id_report_data');
+            if (reportNumberElement) {
+              // Set the post_flair value as the data-flair attribute value
+              const postFlair = entry.post_flair;
+              reportNumberElement.setAttribute('data-flair', postFlair);
+            }
+            hasMatchingData = true;
           }
-          hasMatchingData = true;
         }
       });
 
@@ -108,23 +137,24 @@ ${result.payload.message}
         popupContainer.textContent = 'No matching data found.';
       }
 
-         // Get all the <li> elements
-    const liElements = document.querySelectorAll('.li__table');
+      // Get all the <li> elements
+      const liElements = document.querySelectorAll('.li__table');
 
-    // Iterate over the <li> elements and assign the "REPORT#" number
-    liElements.forEach((li, index) => {
-      const reportNumberElement = li.querySelector('#id_report_data');
-      reportNumberElement.textContent = `REPORT#${index + 1}`;
-    });
+      // Iterate over the <li> elements and assign the "REPORT#" number
+      liElements.forEach((li, index) => {
+        const reportNumberElement = li.querySelector('#id_report_data');
+        reportNumberElement.textContent = `REPORT#${index + 1}`;
+      });
 
-    // Update the "Page Reports" label with the number of reports
-    const pageReportsLabel = document.querySelector('.info-tab-btn');
-    if (pageReportsLabel) {
-      pageReportsLabel.setAttribute('data-tab', `${data.length}`);
+      // Update the "Page Reports" label with the number of reports
+      const pageReportsLabel = document.querySelector('.info-tab-btn');
+      if (pageReportsLabel) {
+        pageReportsLabel.setAttribute('data-tab', `${data.length}`);
+      } else {
+        console.error('Page Reports label not found.');
+      }
     } else {
-      console.error('Page Reports label not found.');
-    }
-    } else {
+      if (entry.fURL == user_url && entry.title == matching_titles) {
       // Data is a single object
       const postElement = createPostElement(data);
 
@@ -141,19 +171,24 @@ ${result.payload.message}
       popupContainer.appendChild(postElement);
     }
   }
+  }
 
   const xtitles = [
-    "tt11281500", 
-    "tt20600980", 
-    "0.90839505", 
-    "You may also be interested in", 
-    "How gun violence is reshaping American lives", 
+    "tt11281500",
+    "tt20600980",
+    "0.90839505",
+    "You may also be interested in",
+    "How gun violence is reshaping American lives",
     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s",
     "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
     "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form",
-    "Can you help translate this site into a foreign language ?"
+    "Can you help translate this site into a foreign language ?",
+    "Page Reports",
+    "teste fake extension",
+    "the cites of the word in classical literature",
+    "teste",
+    "BACHARELOVE has been created"
   ];
-  const escapedXtitles = xtitles.map(title => title.replace(/'/g, "\\'"));  
+  const escapedXtitles = xtitles.map(title => title.replace(/'/g, "\\'"));
   gotData(escapedXtitles);
 });
-

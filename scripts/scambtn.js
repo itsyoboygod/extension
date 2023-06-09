@@ -1,9 +1,9 @@
 // console.log("./popup/scambtn.js is working !!")
 
-
-// Retrieve the stored title from the local storage
+// Retrieve the stored title and URL from local storage
 chrome.storage.local.get(['payload'], function (result) {
   const storedData = JSON.parse(result.payload.message);
+  const usrurl = window.location.href;
 
   let matchCount = 0;
   const matchingTitles = [];
@@ -42,7 +42,7 @@ chrome.storage.local.get(['payload'], function (result) {
                 top: -0.5em;
                 width: 5px;
                 height: 5px;
-                outline: solid 2px;
+                outline: solid 3px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -60,44 +60,52 @@ chrome.storage.local.get(['payload'], function (result) {
         matchCount++;
         matchingTitles.push(title);
 
-        // Scroll to the matched text
-        const matchedElement = document.getElementById('id_span_match');
-        if (matchedElement && matchedElement.scrollIntoView) {
-          matchedElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center'
-          });
-        } else if (matchedElement && matchedElement.offsetTop !== undefined) {
-          window.scrollTo({
-            top: matchedElement.offsetTop,
-            behavior: 'smooth'
-          });
-        }
-
-        // Blink the background color for a few seconds
-        const blinkDuration = 3000; // 3 seconds
-        const blinkInterval = setInterval(function () {
-          const highlightElement = document.getElementById('id_span_match');
-          if (highlightElement) {
-            const currentBgColor = highlightElement.style.backgroundColor;
-            const blinkColor = currentBgColor === 'orange' ? 'transparent' : 'orange';
-            highlightElement.style.backgroundColor = blinkColor;
-          } else {
-            clearInterval(blinkInterval);
-          }
-        }, 500);
-
-        // Stop the blinking after the specified duration
-        setTimeout(function () {
-          clearInterval(blinkInterval);
-        }, blinkDuration);
+       // Scroll to the matched text
+      const matchedElement = document.getElementById('id_span_match');
+      if (matchedElement && matchedElement.scrollIntoView) {
+        matchedElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+      } else if (matchedElement && matchedElement.offsetTop !== undefined) {
+        window.scrollTo({
+          top: matchedElement.offsetTop,
+          behavior: 'smooth'
+        });
       }
-    }
+
+      // Blink the background color smoothly
+      const blinkDuration = 3000; // 3 seconds
+      const blinkInterval = setInterval(function() {
+        const highlightElement = document.getElementById('id_span_match');
+        if (highlightElement) {
+          const currentBgColor = window.getComputedStyle(highlightElement).backgroundColor;
+          const blinkColor = currentBgColor === 'orange' ? 'transparent' : 'orange';
+          highlightElement.style.backgroundColor = blinkColor;
+        } else {
+          clearInterval(blinkInterval);
+        }
+      }, 500);
+
+      // Stop the blinking after the specified duration
+      setTimeout(function() {
+        clearInterval(blinkInterval);
+      }, blinkDuration);
+      }
+  }
   });
 
-  console.log(`
-${matchCount} titles matched on the webpage.
-${matchingTitles}
-            `);
+  // Store matching titles and URL in local storage
+  const dataToStore = {
+    matchingTitles: matchingTitles,
+    usrurl: usrurl
+  };
 
+      chrome.storage.local.set({dataToStore}, () => {
+console.log(`
+usrURL: ${usrurl}
+matching titles(${matchCount}): 
+${matchingTitles}
+        `);
+      });
 });

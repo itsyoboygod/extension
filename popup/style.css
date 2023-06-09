@@ -462,7 +462,7 @@ ul li {
   padding: 3px;
   font-weight: bold;
   font-size: .6rem;
-  outline: solid 2px var(--white);
+  outline: solid 3px var(--white);
   z-index: 1;
 }
 
@@ -533,6 +533,7 @@ ul li {
                 background: transparent;
                 background-color: hsla(0,0%,0%,.5);
   border-radius: .2em;
+  z-index: 9;
 }
 
 .li__table details summary::marker{

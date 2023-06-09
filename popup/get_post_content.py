@@ -24,7 +24,9 @@ post_ids = [
     "141f0vg", 
     "141ki0l",
     "141n4ns",
-    "141nbu6"
+    "141nbu6",
+    "142hgsk",
+    "142ky9t"
     ]
 
 # Load existing data from the JSON file if it exists
