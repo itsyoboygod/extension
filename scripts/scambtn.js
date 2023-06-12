@@ -102,7 +102,7 @@ chrome.storage.local.get(['payload'], function (result) {
   };
 
       chrome.storage.local.set({dataToStore}, () => {
-console.log(`
+        console.log(`
 usrURL: ${usrurl}
 matching titles(${matchCount}): 
 ${matchingTitles}

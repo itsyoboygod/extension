@@ -24,12 +24,15 @@
 
 <body>
     <main style="margin: 5px ;">
+       
         <span id="id_scan-btn" role="button" data-scan="11">SCAN PAGE</span>
         <div class="wrapper">
             <div class="tabs">
                 <input type="radio" class="tabs__radio" name="tabs-expample" id="tab1" checked>
                 <label for="tab1" class="tabs__label info-tab-btn" data-tab="14">Page Reports</label>
-                <div class="tabs__content" id="popup-container"></div>
+                <div class="tabs__content" id="popup-container">
+                    <div id="loading-text" class="loader"></div>
+                </div>
                 <input type="radio" class="tabs__radio" name="tabs-expample" id="tab3">
                 <label for="tab3" class="tabs__label">Report Info</label>
                 <div class="tabs__content">

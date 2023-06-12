@@ -97,6 +97,12 @@ ${result.payload.message}
   }
 
   function gotData(titles, data = result.payload.message) {
+
+    const popupContainer = document.getElementById('popup-container');
+
+    // Clear the existing content in the popup container
+    popupContainer.innerHTML = '';
+
     if (typeof data === 'string') {
       // Parse the data string as JSON
       data = JSON.parse(data);
@@ -147,9 +153,10 @@ ${result.payload.message}
       });
 
       // Update the "Page Reports" label with the number of reports
+      const liElementsCount = document.querySelectorAll('.li__table').length;
       const pageReportsLabel = document.querySelector('.info-tab-btn');
       if (pageReportsLabel) {
-        pageReportsLabel.setAttribute('data-tab', `${data.length}`);
+        pageReportsLabel.setAttribute('data-tab', `${liElementsCount}`);
       } else {
         console.error('Page Reports label not found.');
       }
@@ -190,5 +197,15 @@ ${result.payload.message}
     "BACHARELOVE has been created"
   ];
   const escapedXtitles = xtitles.map(title => title.replace(/'/g, "\\'"));
+
+function scanPage() {
   gotData(escapedXtitles);
+}
+
+// Get the scan button element
+const scanButton = document.getElementById('id_scan-btn');
+
+// Add a click event listener to the scan button
+scanButton.addEventListener('click', scanPage);
+
 });
