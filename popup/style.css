@@ -179,21 +179,22 @@ main h1::after {
   color: var(--white);
 } */
 
+/* 
 #info__url::before{
   content: attr(data-url);
   width: fit-content;
-  /* background-color: red; */
+  /* background-color: red; 
   color: var(--white);
   font-weight: bolder;
-}
+} */
 
-#info__source::before{
+/* #info__source::before{
   content: attr(data-source);
   width: fit-content;
-  /* background-color: red; */
+  /* background-color: red; 
   color: var(--white);
   font-weight: bolder;
-}
+} */
 
 
 #info__report::before{
@@ -400,6 +401,10 @@ ul li {
 } */
 
 /* --------------------TABS--------------------- */
+
+.tabs__label[data-tab=""]:empty  .tabs__label[for="tab1"]::before{
+  display: none;
+}
 
 .tablinks::before {
   content: attr(data-tab);

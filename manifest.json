@@ -43,10 +43,13 @@
               "background.js", 
               "./popup/read_json.js",
               "./popup/popup.js",
-              "./popup/reddit_api.js",
+              "./popup/get_post_title_reddit_api.js",
+              "./popup/get_flair_post_reddit_api.js",
               "./popup/rdm_clr.js",
               "./scripts/scambtn.js",
+              "./scripts/scrollMatch.js",
               "./scripts/scanbtn.js",
+              "./scripts/setUrl.js",
               "./popup/wordnik.js"
             ]
         }
