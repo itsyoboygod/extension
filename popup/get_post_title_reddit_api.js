@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   const subredditName_post = 'BACHARELOVE';
- 
+
   let isDataLoaded = false; // Track if data is already loaded
 
   function createLoadingSpinner() {
@@ -58,18 +58,18 @@ document.addEventListener('DOMContentLoaded', () => {
     idReportDataElement.dataset.flair = postData.flair;
 
     const infoElements = [
-      { label: 'id', id: 'info__id', dataAttribute: 'data-id', dataValue: postData.post_id },
-      { label: 'fURL', id: 'info__url', dataAttribute: 'data-url', dataValue: postData.fURL },
-      { label: 'source', id: 'info__source', dataAttribute: 'data-source', dataValue: postData.source },
-      { label: 'score', id: 'info__score', dataAttribute: 'data-score', dataValue: postData.score },
-      // Add more info elements here as needed
+      { id: 'info__id', dataAttribute: 'data-id', dataValue: postData.post_id },
+      { id: 'info__url', dataAttribute: 'data-url', dataValue: postData.fURL },
+      { id: 'info__source', dataAttribute: 'data-source', dataValue: postData.source },
+      { id: 'info__score', dataAttribute: 'data-score', dataValue: postData.score },
+      { id: 'info__thread', dataAttribute: 'data-thread', dataValue: postData.thread_link },
     ];
 
     infoElements.forEach((info) => {
       const infoElement = document.createElement('p');
       infoElement.id = info.id;
       infoElement.classList.add('info__col');
-      infoElement.textContent = `${info.label}: ${info.dataValue}`;
+      infoElement.textContent = `${info.dataValue}`;
       infoElement.setAttribute(info.dataAttribute, info.dataValue);
       infoColElement.appendChild(infoElement);
     });
@@ -84,16 +84,16 @@ document.addEventListener('DOMContentLoaded', () => {
       // const loadingMessage = document.getElementById('loading-message');
       const postListElement = document.getElementById('post_list');
       postListElement.innerHTML = ''; // Clear existing posts
-  
+
       // loadingMessage.style.display = 'none'; // Hide the loading message initially
-  
+
       const subredditName = 'BACHARELOVE';
-      
+
       const loadingSpinner = createLoadingSpinner();
-      if (loadingSpinner instanceof Node) {
+      if (loadingSpinner) {
         postListElement.appendChild(loadingSpinner); // Add the loading spinner to the post list
       }
-  
+
       fetch(`https://www.reddit.com/r/${subredditName}/new.json`)
         .then(response => response.json())
         .then(data => {
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       const postListElement = document.getElementById('post_list');
       let scanPageText = document.getElementById('scan_page_text');
-  
+
       if (!postListElement || postListElement.children.length === 0) {
         if (!scanPageText) {
           console.log('Scan Page to find some data');
@@ -122,12 +122,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   }
-  
+
   async function displayPosts(posts) {
     const postListElement = document.createElement('ul');
     postListElement.id = 'post_list';
     postListElement.classList.add('ul__table');
-  
+
     if (posts.length === 0) {
       const noResultsElement = document.createElement('p');
       noResultsElement.textContent = 'No posts found.';
@@ -136,9 +136,9 @@ document.addEventListener('DOMContentLoaded', () => {
       // loadingMessage.style.display = 'block'; // Show the loading message
     } else {
       const usrurl = await getUserURLFromLocalStorage();
-  
+
       const postnewData = posts;
-  
+
       postnewData.forEach((post, index) => {
         const fURL = extractURLFromText(post.data.selftext);
         const postData = {
@@ -150,35 +150,33 @@ document.addEventListener('DOMContentLoaded', () => {
           source: post.data.source,
           score: post.data.score,
           flair: post.data.link_flair_text,
+          thread_link: post.data.url
           // Add more data properties as needed
         };
-  
+
         console.log(postData.fURL);
-  
+
         if (postData.fURL === usrurl) {
           const postElement = createPostElement(postData);
           postListElement.appendChild(postElement);
         }
       });
     }
-  
+
     const popupContainer = document.getElementById('popup-container');
     popupContainer.appendChild(postListElement);
-  
-     // Update data-tab attribute values
-  const labels = document.querySelectorAll('.tabs__label');
-  labels.forEach((label, index) => {
-    const tabCount = postListElement.querySelectorAll('li').length;
-    label.setAttribute('data-tab', tabCount);
-  });
 
-
+    // Update data-tab attribute values
+    const labels = document.querySelectorAll('.tabs__label');
+    labels.forEach((label, index) => {
+      const tabCount = postListElement.querySelectorAll('li').length;
+      label.setAttribute('data-tab', tabCount);
+    });
 
     const loadingMessage = document.getElementById('loading-message');
     if (loadingMessage) {
       loadingMessage.remove();
     }
-
   }
 
   function getUserURLFromLocalStorage() {
