@@ -509,6 +509,10 @@ ul li {
   color: black;
 }
 
+#loading-message{
+  text-align: center;
+}
+
 .li__table details{
   width: -webkit-fill-available;
   align-self: center;
@@ -740,6 +744,14 @@ li:nth-of-type(15) details summary p::before{
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
 }
+
+.sver_network-error{
+  color: #181818;
+  align-self: center;
+  margin: 2px;
+  padding: 2px;
+}
+
 
 /* Safari */
 @-webkit-keyframes spin {

@@ -36,18 +36,17 @@
         {
             "matches": ["<all_urls>"],
             "js": [
-              "./scripts/content.js",
               "./scripts/problem.js", 
               "./scripts/optpermissions.js", 
               "./scripts/wordSelec.js", 
               "background.js", 
               "./popup/read_json.js",
               "./popup/popup.js",
-              "./popup/get_post_title_reddit_api.js",
               "./popup/get_flair_post_reddit_api.js",
               "./popup/rdm_clr.js",
               "./scripts/scambtn.js",
               "./scripts/scrollMatch.js",
+              "./scripts/getCrtlyTab.js",
               "./scripts/scanbtn.js",
               "./scripts/setUrl.js",
               "./popup/wordnik.js"

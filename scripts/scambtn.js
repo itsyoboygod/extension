@@ -2,6 +2,7 @@
 
 // // Retrieve the stored title and URL from local storage
 // chrome.storage.local.get(['payload'], function (result) {
+
 //   const storedData = JSON.parse(result.payload.message);
 //   const usrurl = window.location.href;
 

@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const reportTitleElements = document.querySelectorAll('[id^="id_report_title_"]');
         const userContentElements = document.querySelectorAll('p');
   
-  
         let matchCount = 0;
   
         for (let i = 0; i < userContentElements.length; i++) {
